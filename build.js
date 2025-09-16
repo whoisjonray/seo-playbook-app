@@ -95,6 +95,16 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
     // Remove standalone keyword bullet points
     cleanedContent = cleanedContent.replace(/^\s*[-•]\s*(seo|ranking|google|keyword|link|content|local|review|youtube|ai|domain|backlink|optimization|serp)\s*$/gmi, '');
 
+    // Process headers for better formatting
+    cleanedContent = cleanedContent.replace(/^(Execution Steps:)$/gm, '### $1');
+    cleanedContent = cleanedContent.replace(/^(Pitfalls & Limits:)$/gm, '### $1');
+    cleanedContent = cleanedContent.replace(/^(What It Is:)$/gm, '### $1');
+    cleanedContent = cleanedContent.replace(/^(Why It Works:)$/gm, '### $1');
+    cleanedContent = cleanedContent.replace(/^(When To Use:)$/gm, '### $1');
+
+    // Fix duplicate numbering in lists (e.g., "2. Identify" becomes just "Identify")
+    cleanedContent = cleanedContent.replace(/^\d+\.\s+(\d+\.\s+)/gm, '$1');
+
     // Clean up excessive line breaks
     cleanedContent = cleanedContent.replace(/\n{4,}/g, '\n\n\n');
     cleanedContent = cleanedContent.replace(/^\n+/, ''); // Remove leading newlines
@@ -130,9 +140,9 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                 <span class="nav-text">SEO Strategy Directory</span>
             </a>
             <div class="nav-links">
-                <a href="${BASE_PATH}/">Home</a>
-                <a href="${BASE_PATH}/#strategies">Strategies</a>
-                <a href="${BASE_PATH}/search.html">Search</a>
+                <a href="/">Home</a>
+                <a href="/strategies">Strategies</a>
+                <a href="/search">Search</a>
             </div>
         </div>
     </nav>
@@ -141,9 +151,10 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
             <aside class="sidebar">
                 <h3>Quick Links</h3>
                 <ul class="sidebar-links">
-                    ${Object.entries(categories).map(([key, name]) =>
-                        `<li><a href="${BASE_PATH}/#strategies">${name}</a></li>`
-                    ).join('')}
+                    ${Object.entries(categories).map(([key, name]) => {
+                        const catKey = key.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                        return `<li><a href="/strategies#${catKey}">${name}</a></li>`;
+                    }).join('')}
                 </ul>
                 <div class="sidebar-cta">
                     <h4>Need Help?</h4>
@@ -153,7 +164,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
             </aside>
             <main class="main-content">
                 <div class="breadcrumb">
-                    <a href="${BASE_PATH}/">Home</a> / <a href="${BASE_PATH}/#strategies">Strategies</a> / <span>${fileName}</span>
+                    <a href="/">Home</a> / <a href="/strategies">Strategies</a> / <span>${fileName}</span>
                 </div>
                 <div class="strategy-content">
                     <h1 class="strategy-title">${title}</h1>
@@ -162,8 +173,8 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                     </div>
                 </div>
                 <div class="navigation-buttons">
-                    <a href="${BASE_PATH}/" class="btn btn-secondary">← Back to Strategies</a>
-                    <a href="${BASE_PATH}/search.html" class="btn btn-primary">Search All Strategies</a>
+                    <a href="/strategies" class="btn btn-secondary">← Back to Strategies</a>
+                    <a href="/search" class="btn btn-primary">Search All Strategies</a>
                 </div>
             </main>
         </div>
@@ -327,8 +338,9 @@ async function buildSite() {
                 const catStrategies = strategies.filter(s => s.category === catKey);
                 if (catStrategies.length === 0) return '';
 
+                const categoryId = catKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
                 return `
-                <div class="category-section">
+                <div class="category-section" id="${categoryId}">
                     <h3 class="category-title">
                         <span class="category-icon">${getCategoryIcon(catKey)}</span>
                         ${catName}
