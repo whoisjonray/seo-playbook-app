@@ -149,6 +149,16 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
         return match;
     });
 
+    // Fix Related Strategies links to use proper web URLs
+    cleanedContent = cleanedContent.replace(/## Related Strategies[\s\S]*?(?=##|$)/g, function(match) {
+        const category = getCategoryForStrategy(title, cleanedContent);
+        const categoryName = categories[category] || 'Technical SEO';
+
+        return `## Related Strategies\n\n` +
+               `- [View All ${categoryName} Strategies](/strategies#${category})\n` +
+               `- [Back to Strategy Index](/strategies)\n\n`;
+    });
+
     // Convert to HTML
     const htmlContent = marked(cleanedContent);
 
