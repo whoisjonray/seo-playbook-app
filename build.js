@@ -28,8 +28,7 @@ const categories = {
     'youtube': 'YouTube & Video',
     'authority': 'Authority Building',
     'conversion': 'Conversion Optimization',
-    'enterprise': 'Enterprise SEO',
-    'tools': 'Tools & Resources'
+    'enterprise': 'Enterprise SEO'
 };
 
 // Category mapping for strategies (simplified for better categorization)
