@@ -161,7 +161,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
     <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="${title} - Professional SEO strategy guide from Awaken Local. Proven techniques for improving search rankings.">
-    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
     <nav class="navbar">
@@ -288,7 +288,7 @@ async function buildSite() {
     <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Professional SEO strategy directory from Awaken Local. 234 proven strategies for dominating search rankings in 2025.">
-    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
     <nav class="navbar">
@@ -464,7 +464,7 @@ async function buildSite() {
     <title>Search SEO Strategies - Awaken Local</title>
     <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
     <nav class="navbar">
