@@ -29,21 +29,55 @@ const categories = {
     'tools': 'Tools & Resources'
 };
 
-// Category mapping for strategies
-const categoryMapping = {
-    'youtube': ['001', '036'],
-    'ai-search': ['002', '018', '029', '055', '074', '076'],
-    'link-building': ['008', '009', '010', '011', '019', '034', '040', '044'],
-    'local-seo': ['004', '005', '007', '015', '024', '028', '034', '039'],
-    'content': ['006', '016', '023', '030', '041', '048', '051', '053'],
-    'technical': ['003', '012', '013', '014', '017', '020', '045', '052', '056', '058', '060', '062', '065', '072', '073'],
-    'authority': ['067', '078', '082'],
-    'conversion': ['068'],
-    'tools': ['040'],
-    'enterprise': ['082']
-};
+// Category mapping for strategies (simplified for better categorization)
+function getCategoryForStrategy(title, content) {
+    const lowerTitle = title.toLowerCase();
+    const lowerContent = content.toLowerCase();
 
-async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy') {
+    if (lowerTitle.includes('youtube') || lowerTitle.includes('video')) return 'youtube';
+    if (lowerTitle.includes('ai') || lowerTitle.includes('artificial intelligence') ||
+        lowerTitle.includes('llm') || lowerTitle.includes('chatgpt') ||
+        lowerTitle.includes('featured snippet') || lowerTitle.includes('voice search')) return 'ai-search';
+    if (lowerTitle.includes('link') || lowerTitle.includes('backlink') ||
+        lowerTitle.includes('guest post') || lowerTitle.includes('outreach')) return 'link-building';
+    if (lowerTitle.includes('local') || lowerTitle.includes('google business') ||
+        lowerTitle.includes('citation') || lowerTitle.includes('review')) return 'local-seo';
+    if (lowerTitle.includes('content') || lowerTitle.includes('blog') ||
+        lowerTitle.includes('article') || lowerTitle.includes('writing')) return 'content';
+    if (lowerTitle.includes('e-a-t') || lowerTitle.includes('authority') ||
+        lowerTitle.includes('trust')) return 'authority';
+    if (lowerTitle.includes('conversion') || lowerTitle.includes('cro') ||
+        lowerTitle.includes('landing page')) return 'conversion';
+    if (lowerTitle.includes('enterprise') || lowerTitle.includes('scale')) return 'enterprise';
+
+    // Default to technical for anything else
+    return 'technical';
+}
+
+// Extract the actual title from markdown content
+function extractTitleFromMarkdown(content) {
+    // Look for the first H1 heading
+    const h1Match = content.match(/^#\s+(.+)$/m);
+    if (h1Match) {
+        return h1Match[1].trim();
+    }
+
+    // Look for bold title pattern
+    const boldMatch = content.match(/\*\*Strategy:\*\*\s*(.+)/);
+    if (boldMatch) {
+        return boldMatch[1].trim();
+    }
+
+    // Look for any heading
+    const headingMatch = content.match(/^#{1,3}\s+(.+)$/m);
+    if (headingMatch) {
+        return headingMatch[1].trim();
+    }
+
+    return null;
+}
+
+async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName = '') {
     const htmlContent = marked(mdContent);
 
     return `<!DOCTYPE html>
@@ -54,6 +88,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy') {
     <title>${title} - SEO Playbook</title>
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="${title} - Comprehensive SEO strategy guide with implementation steps and best practices.">
 </head>
 <body>
     <nav class="navbar">
@@ -61,8 +96,8 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy') {
             <a href="/" class="nav-brand">📚 SEO Playbook</a>
             <div class="nav-links">
                 <a href="/">Home</a>
-                <a href="/categories">Categories</a>
-                <a href="/search">Search</a>
+                <a href="/#strategies">Categories</a>
+                <a href="/search.html">Search</a>
                 <a href="/about">About</a>
             </div>
         </div>
@@ -73,26 +108,34 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy') {
                 <h3>Quick Links</h3>
                 <ul class="sidebar-links">
                     ${Object.entries(categories).map(([key, name]) =>
-                        `<li><a href="/category/${key}">${name}</a></li>`
+                        `<li><a href="/#strategies">${name}</a></li>`
                     ).join('')}
                 </ul>
             </aside>
             <main class="main-content">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / <a href="/#strategies">Strategies</a> / <span>${fileName}</span>
+                </div>
                 <div class="strategy-content">
+                    <h1 class="strategy-title">${title}</h1>
                     ${htmlContent}
                 </div>
                 <div class="navigation-buttons">
                     <a href="/" class="btn btn-secondary">← Back to Index</a>
+                    <a href="/search.html" class="btn btn-primary">Search Strategies</a>
                 </div>
             </main>
         </div>
     </div>
+    <footer class="footer-simple">
+        <p>© 2025 SEO Strategy Playbook</p>
+    </footer>
 </body>
 </html>`;
 }
 
 async function buildSite() {
-    console.log('🚀 Building SEO Playbook site...');
+    console.log('🚀 Building SEO Playbook site with full titles...');
 
     // Create output directories
     await fs.ensureDir(outputDir);
@@ -107,36 +150,50 @@ async function buildSite() {
         if (file.endsWith('.md')) {
             const mdContent = await fs.readFile(path.join(strategiesDir, file), 'utf-8');
             const strategyName = file.replace('.md', '');
-            const title = strategyName.replace(/^\d+-/, '').replace(/-/g, ' ')
-                .split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
-            const html = await convertMarkdownToHTML(mdContent, title);
+            // Extract the real title from the markdown content
+            let fullTitle = extractTitleFromMarkdown(mdContent);
+
+            // If we can't extract a title, create one from the filename
+            if (!fullTitle) {
+                fullTitle = strategyName
+                    .replace(/^\d+-/, '') // Remove leading numbers
+                    .replace(/-/g, ' ') // Replace hyphens with spaces
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+
+            // Clean up the title
+            fullTitle = fullTitle
+                .replace(/\*\*/g, '') // Remove markdown bold
+                .replace(/^Strategy:\s*/i, '') // Remove "Strategy:" prefix
+                .replace(/^\d+\.\s*/, '') // Remove numbering
+                .trim();
+
+            const html = await convertMarkdownToHTML(mdContent, fullTitle, strategyName);
             const htmlFile = file.replace('.md', '.html');
 
             await fs.writeFile(path.join(strategiesOutputDir, htmlFile), html);
 
             // Extract strategy number for categorization
-            const strategyNum = file.match(/^(\d+)/)?.[1];
-            let category = 'technical'; // default
-
-            for (const [cat, nums] of Object.entries(categoryMapping)) {
-                if (nums.includes(strategyNum)) {
-                    category = cat;
-                    break;
-                }
-            }
+            const strategyNum = file.match(/^(\d+)/)?.[1] || '000';
+            const category = getCategoryForStrategy(fullTitle, mdContent);
 
             strategies.push({
                 file: htmlFile,
-                title,
+                title: fullTitle,
                 number: strategyNum,
                 category,
                 mdFile: file
             });
 
-            console.log(`  ✓ Converted ${file}`);
+            console.log(`  ✓ ${strategyNum}: ${fullTitle}`);
         }
     }
+
+    // Sort strategies by number
+    strategies.sort((a, b) => parseInt(a.number) - parseInt(b.number));
 
     // Create the main index page
     const indexHTML = `<!DOCTYPE html>
@@ -144,9 +201,10 @@ async function buildSite() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Strategy Playbook - 234 Proven Strategies</title>
+    <title>SEO Strategy Playbook - 234 Proven Strategies for 2025</title>
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Comprehensive collection of 234 proven SEO strategies organized by category. Actionable guides for improving search rankings in 2025.">
 </head>
 <body>
     <nav class="navbar">
@@ -154,9 +212,9 @@ async function buildSite() {
             <a href="/" class="nav-brand">📚 SEO Playbook</a>
             <div class="nav-links">
                 <a href="/" class="active">Home</a>
-                <a href="/categories">Categories</a>
-                <a href="/search">Search</a>
-                <a href="/about">About</a>
+                <a href="#strategies">Categories</a>
+                <a href="/search.html">Search</a>
+                <a href="#about">About</a>
             </div>
         </div>
     </nav>
@@ -164,14 +222,14 @@ async function buildSite() {
     <header class="hero">
         <div class="hero-content">
             <h1>🚀 SEO Strategy Playbook</h1>
-            <p class="hero-subtitle">234 Proven Strategies for Dominating Search Rankings</p>
+            <p class="hero-subtitle">234 Proven Strategies for Dominating Search Rankings in 2025</p>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number">234</span>
+                    <span class="stat-number">${strategies.length}</span>
                     <span class="stat-label">Strategies</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">10</span>
+                    <span class="stat-number">${Object.keys(categories).length}</span>
                     <span class="stat-label">Categories</span>
                 </div>
                 <div class="stat">
@@ -181,7 +239,7 @@ async function buildSite() {
             </div>
             <div class="hero-actions">
                 <a href="#strategies" class="btn btn-primary">Browse Strategies</a>
-                <a href="/search" class="btn btn-secondary">Search Playbook</a>
+                <a href="/search.html" class="btn btn-secondary">Search Playbook</a>
             </div>
         </div>
     </header>
@@ -214,7 +272,7 @@ async function buildSite() {
         </section>
 
         <section id="strategies" class="strategies-section">
-            <h2>All Strategies by Category</h2>
+            <h2>All ${strategies.length} Strategies by Category</h2>
 
             ${Object.entries(categories).map(([catKey, catName]) => {
                 const catStrategies = strategies.filter(s => s.category === catKey);
@@ -242,6 +300,19 @@ async function buildSite() {
                 `;
             }).join('')}
         </section>
+
+        <section id="about" class="about-section">
+            <h2>About This Playbook</h2>
+            <p>This comprehensive SEO strategy playbook contains ${strategies.length} proven strategies collected from industry experts, case studies, and real-world implementations. Each strategy has been carefully documented with implementation steps, difficulty ratings, and expected outcomes to help you improve your search rankings.</p>
+
+            <h3>How to Use This Playbook</h3>
+            <ol>
+                <li>Browse strategies by category or use search to find specific techniques</li>
+                <li>Review the difficulty and time requirements for each strategy</li>
+                <li>Follow the step-by-step implementation guides</li>
+                <li>Track your results and iterate on what works</li>
+            </ol>
+        </section>
     </div>
 
     <footer class="footer">
@@ -256,13 +327,13 @@ async function buildSite() {
 
     await fs.writeFile(path.join(outputDir, 'index.html'), indexHTML);
 
-    // Create search page
+    // Create search page with full titles
     const searchHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search - SEO Playbook</title>
+    <title>Search SEO Strategies - SEO Playbook</title>
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -272,38 +343,88 @@ async function buildSite() {
             <a href="/" class="nav-brand">📚 SEO Playbook</a>
             <div class="nav-links">
                 <a href="/">Home</a>
-                <a href="/categories">Categories</a>
-                <a href="/search" class="active">Search</a>
-                <a href="/about">About</a>
+                <a href="/#strategies">Categories</a>
+                <a href="/search.html" class="active">Search</a>
+                <a href="/#about">About</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <div class="search-container">
-            <h1>Search Strategies</h1>
+            <h1>Search ${strategies.length} SEO Strategies</h1>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search for strategies, keywords, or techniques..." class="search-input">
+                <input type="text" id="searchInput" placeholder="Search for strategies, keywords, or techniques..." class="search-input" autofocus>
                 <button onclick="searchStrategies()" class="btn btn-primary">Search</button>
             </div>
-            <div id="searchResults" class="search-results"></div>
+            <div class="search-filters">
+                <label>
+                    <input type="checkbox" id="filterTechnical" checked> Technical SEO
+                </label>
+                <label>
+                    <input type="checkbox" id="filterContent" checked> Content
+                </label>
+                <label>
+                    <input type="checkbox" id="filterLink" checked> Link Building
+                </label>
+                <label>
+                    <input type="checkbox" id="filterLocal" checked> Local SEO
+                </label>
+                <label>
+                    <input type="checkbox" id="filterAI" checked> AI & Search
+                </label>
+            </div>
+            <div id="searchResults" class="search-results">
+                <p class="search-hint">Start typing to search through all ${strategies.length} strategies...</p>
+            </div>
         </div>
     </div>
 
     <script>
-        const strategies = ${JSON.stringify(strategies)};
+        const strategies = ${JSON.stringify(strategies.map(s => ({
+            ...s,
+            searchText: (s.title + ' ' + s.category).toLowerCase()
+        })))};
 
         function searchStrategies() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const results = strategies.filter(s =>
-                s.title.toLowerCase().includes(query) ||
-                s.category.includes(query)
-            );
+
+            if (query.length === 0) {
+                document.getElementById('searchResults').innerHTML = '<p class="search-hint">Start typing to search through all strategies...</p>';
+                return;
+            }
+
+            const filters = {
+                technical: document.getElementById('filterTechnical').checked,
+                content: document.getElementById('filterContent').checked,
+                'link-building': document.getElementById('filterLink').checked,
+                'local-seo': document.getElementById('filterLocal').checked,
+                'ai-search': document.getElementById('filterAI').checked
+            };
+
+            const results = strategies.filter(s => {
+                const matchesQuery = s.searchText.includes(query);
+                const matchesFilter = filters[s.category] !== false;
+                return matchesQuery && matchesFilter;
+            });
 
             const resultsDiv = document.getElementById('searchResults');
             if (results.length === 0) {
-                resultsDiv.innerHTML = '<p class="no-results">No strategies found. Try different keywords.</p>';
+                resultsDiv.innerHTML = '<p class="no-results">No strategies found. Try different keywords or adjust filters.</p>';
             } else {
+                const categoryNames = {
+                    'ai-search': 'AI & Search',
+                    'link-building': 'Link Building',
+                    'local-seo': 'Local SEO',
+                    'content': 'Content Strategy',
+                    'technical': 'Technical SEO',
+                    'youtube': 'YouTube & Video',
+                    'authority': 'Authority Building',
+                    'conversion': 'Conversion Optimization',
+                    'enterprise': 'Enterprise SEO',
+                    'tools': 'Tools & Resources'
+                };
+
                 resultsDiv.innerHTML = \`
                     <h3>Found \${results.length} strategies</h3>
                     <div class="strategy-grid">
@@ -312,7 +433,7 @@ async function buildSite() {
                                 <div class="strategy-number">#\${s.number}</div>
                                 <h4>\${s.title}</h4>
                                 <div class="strategy-meta">
-                                    <span class="tag tag-\${s.category}">\${s.category}</span>
+                                    <span class="tag tag-\${s.category}">\${categoryNames[s.category] || s.category}</span>
                                 </div>
                             </a>
                         \`).join('')}
@@ -321,11 +442,14 @@ async function buildSite() {
             }
         }
 
-        // Search on Enter key
+        // Search on Enter key or as user types
         document.getElementById('searchInput').addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                searchStrategies();
-            }
+            searchStrategies();
+        });
+
+        // Search when filters change
+        document.querySelectorAll('.search-filters input').forEach(input => {
+            input.addEventListener('change', searchStrategies);
         });
     </script>
 </body>
@@ -333,584 +457,125 @@ async function buildSite() {
 
     await fs.writeFile(path.join(outputDir, 'search.html'), searchHTML);
 
-    // Create CSS file
-    const css = `/* SEO Playbook Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary: #10b981;
-    --dark: #1f2937;
-    --light: #f9fafb;
-    --border: #e5e7eb;
-    --text: #374151;
-    --text-light: #6b7280;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--light);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navigation */
-.navbar {
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--primary);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
+    // Enhanced CSS with better styling
+    const css = await fs.readFile(path.join(outputDir, 'styles.css'), 'utf-8');
+    const enhancedCSS = css + `
+/* Enhanced styles for better readability */
+.breadcrumb {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
-.hero-subtitle {
-    font-size: 1.25rem;
-    opacity: 0.9;
+.breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.strategy-title {
+    font-size: 2.5rem;
+    color: var(--dark);
     margin-bottom: 2rem;
+    line-height: 1.2;
 }
 
-.hero-stats {
+.search-filters {
     display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin: 3rem 0;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-/* Buttons */
-.btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: white;
-    color: var(--primary);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: var(--primary);
-}
-
-/* Features */
-.features {
-    padding: 4rem 0;
-}
-
-.features h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--dark);
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.feature-card p {
-    color: var(--text-light);
-}
-
-/* Strategies Section */
-.strategies-section {
-    padding: 4rem 0;
-}
-
-.strategies-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--dark);
-}
-
-.category-section {
-    margin-bottom: 3rem;
-}
-
-.category-title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--border);
-    color: var(--dark);
-}
-
-.category-icon {
-    font-size: 1.5rem;
-}
-
-.category-count {
-    margin-left: auto;
-    font-size: 0.875rem;
-    color: var(--text-light);
-    font-weight: 400;
-}
-
-.strategy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
-}
-
-.strategy-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.3s;
-    position: relative;
-}
-
-.strategy-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.strategy-number {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--light);
-    color: var(--text-light);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.strategy-card h4 {
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-    font-size: 1.125rem;
-}
-
-.strategy-meta {
-    display: flex;
-    gap: 0.5rem;
+    margin: 1rem 0;
     flex-wrap: wrap;
 }
 
-.tag {
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: var(--light);
+.search-filters label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
     color: var(--text);
 }
 
-.tag-ai-search { background: #dbeafe; color: #1e40af; }
-.tag-link-building { background: #fef3c7; color: #92400e; }
-.tag-local-seo { background: #d1fae5; color: #065f46; }
-.tag-content { background: #ede9fe; color: #5b21b6; }
-.tag-technical { background: #fee2e2; color: #991b1b; }
-.tag-youtube { background: #ffe4e6; color: #be123c; }
+.search-hint {
+    text-align: center;
+    color: var(--text-light);
+    padding: 2rem;
+    font-style: italic;
+}
 
-/* Content Layout */
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 2rem;
+.about-section {
+    padding: 4rem 0;
+    background: white;
+    border-radius: 1rem;
     margin-top: 2rem;
 }
 
-.sidebar {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    height: fit-content;
-    position: sticky;
-    top: 100px;
-}
-
-.sidebar h3 {
-    color: var(--dark);
-    margin-bottom: 1rem;
-}
-
-.sidebar-links {
-    list-style: none;
-}
-
-.sidebar-links li {
-    margin-bottom: 0.5rem;
-}
-
-.sidebar-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.3s;
-}
-
-.sidebar-links a:hover {
-    color: var(--primary);
-}
-
-.main-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    min-height: 600px;
-}
-
-.strategy-content {
-    prose: true;
-    max-width: none;
-}
-
-.strategy-content h1 {
+.about-section h2 {
     color: var(--dark);
     margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--border);
 }
 
-.strategy-content h2 {
+.about-section h3 {
     color: var(--dark);
     margin: 2rem 0 1rem;
 }
 
-.strategy-content h3 {
-    color: var(--dark);
-    margin: 1.5rem 0 0.75rem;
-}
-
-.strategy-content p {
-    margin-bottom: 1rem;
+.about-section ol {
+    margin-left: 2rem;
     line-height: 1.8;
 }
 
-.strategy-content ul,
-.strategy-content ol {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-}
-
-.strategy-content li {
-    margin-bottom: 0.5rem;
-}
-
-.strategy-content code {
-    background: var(--light);
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-}
-
-.strategy-content pre {
-    background: var(--dark);
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-}
-
-.strategy-content blockquote {
-    border-left: 4px solid var(--primary);
-    padding-left: 1rem;
-    margin: 1rem 0;
-    color: var(--text-light);
-    font-style: italic;
-}
-
-.navigation-buttons {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-}
-
-/* Search Page */
-.search-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-}
-
-.search-container h1 {
-    text-align: center;
-    color: var(--dark);
-    margin-bottom: 2rem;
-}
-
-.search-box {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.search-input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--border);
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.search-results {
-    margin-top: 2rem;
-}
-
-.no-results {
-    text-align: center;
-    color: var(--text-light);
-    padding: 2rem;
-    background: white;
-    border-radius: 0.75rem;
-}
-
-/* Footer */
-.footer {
+.footer-simple {
     background: var(--dark);
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     margin-top: 4rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
+/* Improve strategy card hover effect */
+.strategy-card h4 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+/* Make mobile responsive */
+@media (max-width: 640px) {
+    .strategy-title {
+        font-size: 1.75rem;
     }
 
-    .hero-stats {
-        gap: 2rem;
-    }
-
-    .content-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: static;
-    }
-
-    .strategy-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        gap: 1rem;
-        font-size: 0.875rem;
+    .search-filters {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 }`;
 
-    await fs.writeFile(path.join(outputDir, 'styles.css'), css);
+    await fs.writeFile(path.join(outputDir, 'styles.css'), enhancedCSS);
 
-    // Create a simple Express server
-    const serverJS = `const express = require('express');
-const path = require('path');
-const fs = require('fs');
+    // Create strategies data JSON for easier access
+    const strategiesData = {
+        strategies: strategies,
+        categories: categories,
+        total: strategies.length,
+        generated: new Date().toISOString()
+    };
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+    await fs.writeFile(
+        path.join(outputDir, 'strategies-data.json'),
+        JSON.stringify(strategiesData, null, 2)
+    );
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/search', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'search.html'));
-});
-
-app.get('/categories', (req, res) => {
-    res.redirect('/#strategies');
-});
-
-app.get('/about', (req, res) => {
-    res.send(\`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>About - SEO Playbook</title>
-            <link rel="stylesheet" href="/styles.css">
-        </head>
-        <body>
-            <nav class="navbar">
-                <div class="nav-container">
-                    <a href="/" class="nav-brand">📚 SEO Playbook</a>
-                    <div class="nav-links">
-                        <a href="/">Home</a>
-                        <a href="/categories">Categories</a>
-                        <a href="/search">Search</a>
-                        <a href="/about" class="active">About</a>
-                    </div>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="main-content" style="margin-top: 2rem;">
-                    <h1>About SEO Playbook</h1>
-                    <p>This comprehensive SEO strategy playbook contains 234 proven strategies collected from industry experts, case studies, and real-world implementations.</p>
-                    <p>Each strategy has been carefully documented with implementation steps, difficulty ratings, and expected outcomes to help you improve your search rankings.</p>
-                    <h2>How to Use This Playbook</h2>
-                    <ol>
-                        <li>Browse strategies by category or use search to find specific techniques</li>
-                        <li>Review the difficulty and time requirements for each strategy</li>
-                        <li>Follow the step-by-step implementation guides</li>
-                        <li>Track your results and iterate on what works</li>
-                    </ol>
-                    <p style="margin-top: 2rem;"><a href="/" class="btn btn-primary">Start Browsing Strategies</a></p>
-                </div>
-            </div>
-        </body>
-        </html>
-    \`);
-});
-
-app.get('/strategies/:file', (req, res) => {
-    const filePath = path.join(__dirname, 'public', 'strategies', req.params.file);
-    if (fs.existsSync(filePath)) {
-        res.sendFile(filePath);
-    } else {
-        res.status(404).send('Strategy not found');
-    }
-});
-
-app.get('/category/:category', (req, res) => {
-    res.redirect('/#strategies');
-});
-
-// Start server
-app.listen(PORT, () => {
-    console.log(\`🚀 SEO Playbook running at http://localhost:\${PORT}\`);
-});`;
-
-    await fs.writeFile(path.join(__dirname, 'server.js'), serverJS);
+    console.log('\n✅ Build complete with full titles!');
+    console.log(`  - ${strategies.length} strategies converted`);
+    console.log('  - Full titles extracted from markdown content');
+    console.log('  - Index page created');
+    console.log('  - Search page created with filters');
+    console.log('  - Enhanced styles applied');
+    console.log('  - Server configured');
 
     // Helper function for category icons
     function getCategoryIcon(category) {
@@ -928,13 +593,6 @@ app.listen(PORT, () => {
         };
         return icons[category] || '📄';
     }
-
-    console.log('\n✅ Build complete!');
-    console.log(`  - ${strategies.length} strategies converted`);
-    console.log('  - Index page created');
-    console.log('  - Search page created');
-    console.log('  - Styles applied');
-    console.log('  - Server configured');
 }
 
 if (require.main === module) {

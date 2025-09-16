@@ -1,0 +1,1663 @@
+{
+  "strategies": [
+    {
+      "file": "youtube-keyword-frontloading-for-video-ranking.html",
+      "title": "YouTube Keyword Frontloading for Video Ranking",
+      "number": "000",
+      "category": "youtube",
+      "mdFile": "youtube-keyword-frontloading-for-video-ranking.md"
+    },
+    {
+      "file": "001-youtube-keyword-frontloading-for-video-ranking.html",
+      "title": "YouTube Keyword Frontloading for Video Ranking",
+      "number": "001",
+      "category": "youtube",
+      "mdFile": "001-youtube-keyword-frontloading-for-video-ranking.md"
+    },
+    {
+      "file": "002-targeting-ai-overviews-google-s-ai-answer-boxes-vi.html",
+      "title": "Targeting AI Overviews (Google’s AI Answer Boxes) via Featured Snippet Optimization",
+      "number": "002",
+      "category": "ai-search",
+      "mdFile": "002-targeting-ai-overviews-google-s-ai-answer-boxes-vi.md"
+    },
+    {
+      "file": "003-internal-linking-to-target-keyword-pages.html",
+      "title": "Internal Linking to Target Keyword Pages",
+      "number": "003",
+      "category": "link-building",
+      "mdFile": "003-internal-linking-to-target-keyword-pages.md"
+    },
+    {
+      "file": "004-tracking-and-maintaining-review-recency-for-google.html",
+      "title": "Tracking and Maintaining Review Recency for Google Business Profiles",
+      "number": "004",
+      "category": "ai-search",
+      "mdFile": "004-tracking-and-maintaining-review-recency-for-google.md"
+    },
+    {
+      "file": "005-incentivizing-employees-to-request-reviews-avoid-i.html",
+      "title": "Incentivizing Employees to Request Reviews (Avoid Incentivizing Customers)",
+      "number": "005",
+      "category": "local-seo",
+      "mdFile": "005-incentivizing-employees-to-request-reviews-avoid-i.md"
+    },
+    {
+      "file": "006-press-releases-for-fresh-content-and-ai-overview-i.html",
+      "title": "Press Releases for Fresh Content and AI Overview Influence",
+      "number": "006",
+      "category": "ai-search",
+      "mdFile": "006-press-releases-for-fresh-content-and-ai-overview-i.md"
+    },
+    {
+      "file": "007-creating-unique-detailed-location-pages-for-multi-.html",
+      "title": "Creating Unique, Detailed Location Pages for Multi-Location SEO",
+      "number": "007",
+      "category": "ai-search",
+      "mdFile": "007-creating-unique-detailed-location-pages-for-multi-.md"
+    },
+    {
+      "file": "008-guest-posting-within-your-business-network-for-hig.html",
+      "title": "Guest Posting Within Your Business Network for High-Quality Links",
+      "number": "008",
+      "category": "link-building",
+      "mdFile": "008-guest-posting-within-your-business-network-for-hig.md"
+    },
+    {
+      "file": "009-use-of-exact-match-anchor-text-in-guest-post-links.html",
+      "title": "Use of Exact Match Anchor Text in Guest Post Links Sparingly",
+      "number": "009",
+      "category": "link-building",
+      "mdFile": "009-use-of-exact-match-anchor-text-in-guest-post-links.md"
+    },
+    {
+      "file": "010-evaluating-link-quality-using-organic-pages-metric.html",
+      "title": "Evaluating Link Quality Using “Organic Pages” Metric Over Domain Authority",
+      "number": "010",
+      "category": "ai-search",
+      "mdFile": "010-evaluating-link-quality-using-organic-pages-metric.md"
+    },
+    {
+      "file": "011-using-expired-domains-redirected-to-relevant-locat.html",
+      "title": "Using Expired Domains Redirected to Relevant Location or Service Pages",
+      "number": "011",
+      "category": "ai-search",
+      "mdFile": "011-using-expired-domains-redirected-to-relevant-locat.md"
+    },
+    {
+      "file": "012-starting-seo-with-an-established-domain-instead-of.html",
+      "title": "Starting SEO with an Established Domain Instead of New Domain",
+      "number": "012",
+      "category": "ai-search",
+      "mdFile": "012-starting-seo-with-an-established-domain-instead-of.md"
+    },
+    {
+      "file": "013-including-keywords-in-url-slugs-for-ranking-benefi.html",
+      "title": "Including Keywords in URL Slugs for Ranking Benefit",
+      "number": "013",
+      "category": "technical",
+      "mdFile": "013-including-keywords-in-url-slugs-for-ranking-benefi.md"
+    },
+    {
+      "file": "014-minimal-and-structured-navigation-linking-to-key-c.html",
+      "title": "Minimal and Structured Navigation Linking to Key Conversion Pages",
+      "number": "014",
+      "category": "link-building",
+      "mdFile": "014-minimal-and-structured-navigation-linking-to-key-c.md"
+    },
+    {
+      "file": "015-extending-google-business-profile-opening-hours-fo.html",
+      "title": "Extending Google Business Profile Opening Hours for Ranking Advantage",
+      "number": "015",
+      "category": "local-seo",
+      "mdFile": "015-extending-google-business-profile-opening-hours-fo.md"
+    },
+    {
+      "file": "016-reddit-ama-ask-me-anything-engagement-for-brand-an.html",
+      "title": "Reddit AMA (Ask Me Anything) Engagement for Brand and SEO Benefits",
+      "number": "016",
+      "category": "technical",
+      "mdFile": "016-reddit-ama-ask-me-anything-engagement-for-brand-an.md"
+    },
+    {
+      "file": "017-entity-seo-optimization.html",
+      "title": "Entity SEO Optimization",
+      "number": "017",
+      "category": "technical",
+      "mdFile": "017-entity-seo-optimization.md"
+    },
+    {
+      "file": "018-entity-gap-analysis-using-ai-tools-and-competitor-.html",
+      "title": "Entity Gap Analysis Using AI Tools and Competitor Research",
+      "number": "018",
+      "category": "ai-search",
+      "mdFile": "018-entity-gap-analysis-using-ai-tools-and-competitor-.md"
+    },
+    {
+      "file": "019-parasite-seo-using-high-authority-platforms.html",
+      "title": "Parasite SEO Using High Authority Platforms",
+      "number": "019",
+      "category": "authority",
+      "mdFile": "019-parasite-seo-using-high-authority-platforms.md"
+    },
+    {
+      "file": "020-using-paid-indexing-services-to-speed-up-indexing-.html",
+      "title": "Using Paid Indexing Services to Speed Up Indexing for Parasite SEO",
+      "number": "020",
+      "category": "ai-search",
+      "mdFile": "020-using-paid-indexing-services-to-speed-up-indexing-.md"
+    },
+    {
+      "file": "021-local-seo-backlinking-via-google-business-profile-.html",
+      "title": "Local SEO Backlinking via Google Business Profile & Related Social Media Profiles",
+      "number": "021",
+      "category": "link-building",
+      "mdFile": "021-local-seo-backlinking-via-google-business-profile-.md"
+    },
+    {
+      "file": "022-competitor-backlink-profile-analysis-using-mangool.html",
+      "title": "Competitor Backlink Profile Analysis Using Mangools",
+      "number": "022",
+      "category": "link-building",
+      "mdFile": "022-competitor-backlink-profile-analysis-using-mangool.md"
+    },
+    {
+      "file": "023-using-page-donor-links-via-local-sponsorships.html",
+      "title": "Using “Page Donor” Links via Local Sponsorships",
+      "number": "023",
+      "category": "link-building",
+      "mdFile": "023-using-page-donor-links-via-local-sponsorships.md"
+    },
+    {
+      "file": "024-google-image-seo-optimization-using-image-metadata.html",
+      "title": "Google Image SEO Optimization Using Image Metadata and Cross-Platform Syndication",
+      "number": "024",
+      "category": "conversion",
+      "mdFile": "024-google-image-seo-optimization-using-image-metadata.md"
+    },
+    {
+      "file": "025-content-creation-first-before-backlinking-and-soci.html",
+      "title": "Content Creation First Before Backlinking and Social Profiles for New Sites",
+      "number": "025",
+      "category": "link-building",
+      "mdFile": "025-content-creation-first-before-backlinking-and-soci.md"
+    },
+    {
+      "file": "026-daisy-chaining-link-in-bio-profiles-for-authority-.html",
+      "title": "Daisy-Chaining Link in Bio Profiles for Authority Building",
+      "number": "026",
+      "category": "ai-search",
+      "mdFile": "026-daisy-chaining-link-in-bio-profiles-for-authority-.md"
+    },
+    {
+      "file": "027-content-syndication-and-multi-format-publishing-st.html",
+      "title": "Content Syndication and Multi-Format Publishing Strategy",
+      "number": "027",
+      "category": "content",
+      "mdFile": "027-content-syndication-and-multi-format-publishing-st.md"
+    },
+    {
+      "file": "028-using-ai-tools-for-seo-content-enhancement-and-soc.html",
+      "title": "Using AI Tools for SEO Content Enhancement and Social Posts",
+      "number": "028",
+      "category": "ai-search",
+      "mdFile": "028-using-ai-tools-for-seo-content-enhancement-and-soc.md"
+    },
+    {
+      "file": "029-keyword-placement-at-beginning-of-title-headings-a.html",
+      "title": "Keyword Placement at Beginning of Title, Headings, and First Sentence",
+      "number": "029",
+      "category": "technical",
+      "mdFile": "029-keyword-placement-at-beginning-of-title-headings-a.md"
+    },
+    {
+      "file": "030-link-building-with-linkable-assets-and-journalist-.html",
+      "title": "Link Building with Linkable Assets and Journalist Outreach",
+      "number": "030",
+      "category": "link-building",
+      "mdFile": "030-link-building-with-linkable-assets-and-journalist-.md"
+    },
+    {
+      "file": "031-strategy-name.html",
+      "title": "Strategy Name",
+      "number": "031",
+      "category": "technical",
+      "mdFile": "031-strategy-name.md"
+    },
+    {
+      "file": "032-niche-focus-for-google-discover-visibility.html",
+      "title": "Niche Focus for Google Discover Visibility",
+      "number": "032",
+      "category": "technical",
+      "mdFile": "032-niche-focus-for-google-discover-visibility.md"
+    },
+    {
+      "file": "033-content-first-seo-approach.html",
+      "title": "Content-First SEO Approach",
+      "number": "033",
+      "category": "content",
+      "mdFile": "033-content-first-seo-approach.md"
+    },
+    {
+      "file": "034-avoid-scaled-ai-content-with-spammy-techniques.html",
+      "title": "Avoid Scaled AI Content with Spammy Techniques",
+      "number": "034",
+      "category": "ai-search",
+      "mdFile": "034-avoid-scaled-ai-content-with-spammy-techniques.md"
+    },
+    {
+      "file": "035-use-ai-to-write-contextually-relevant-image-alt-te.html",
+      "title": "Use AI to Write Contextually Relevant Image Alt Text",
+      "number": "035",
+      "category": "ai-search",
+      "mdFile": "035-use-ai-to-write-contextually-relevant-image-alt-te.md"
+    },
+    {
+      "file": "036-upload-duplicate-images-with-unique-filenames-for-.html",
+      "title": "Upload Duplicate Images with Unique Filenames for SEO",
+      "number": "036",
+      "category": "technical",
+      "mdFile": "036-upload-duplicate-images-with-unique-filenames-for-.md"
+    },
+    {
+      "file": "037-pitfalls-limits.html",
+      "title": "Pitfalls & Limits:",
+      "number": "037",
+      "category": "technical",
+      "mdFile": "037-pitfalls-limits.md"
+    },
+    {
+      "file": "038-aggregate-user-generated-content-ugc-programmatica.html",
+      "title": "Aggregate User-Generated Content (UGC) Programmatically with Quality Control",
+      "number": "038",
+      "category": "content",
+      "mdFile": "038-aggregate-user-generated-content-ugc-programmatica.md"
+    },
+    {
+      "file": "039-leverage-parasite-seo-by-renting-subfolders-on-hig.html",
+      "title": "Leverage Parasite SEO by Renting Subfolders on High Authority Sites",
+      "number": "039",
+      "category": "authority",
+      "mdFile": "039-leverage-parasite-seo-by-renting-subfolders-on-hig.md"
+    },
+    {
+      "file": "040-isolate-black-hat-or-risky-seo-experiments-in-sepa.html",
+      "title": "Isolate Black Hat or Risky SEO Experiments in Separate Google Search Console Accounts",
+      "number": "040",
+      "category": "technical",
+      "mdFile": "040-isolate-black-hat-or-risky-seo-experiments-in-sepa.md"
+    },
+    {
+      "file": "041-use-press-releases-and-pr-to-influence-ai-generate.html",
+      "title": "Use Press Releases and PR to Influence AI-Generated Content and AI Overviews",
+      "number": "041",
+      "category": "ai-search",
+      "mdFile": "041-use-press-releases-and-pr-to-influence-ai-generate.md"
+    },
+    {
+      "file": "042-use-microsoft-clarity-or-free-cro-tools-to-inform-.html",
+      "title": "Use Microsoft Clarity (or Free CRO Tools) to Inform SEO Content and UX Optimization",
+      "number": "042",
+      "category": "content",
+      "mdFile": "042-use-microsoft-clarity-or-free-cro-tools-to-inform-.md"
+    },
+    {
+      "file": "043-create-image-carousels-video-sections-showing-real.html",
+      "title": "Create Image Carousels/Video Sections Showing Real Use Cases on Product Pages",
+      "number": "043",
+      "category": "youtube",
+      "mdFile": "043-create-image-carousels-video-sections-showing-real.md"
+    },
+    {
+      "file": "044-publish-bottom-of-funnel-pages-with-fast-direct-an.html",
+      "title": "Publish Bottom-of-Funnel Pages with Fast, Direct Answers and Strong CTAs",
+      "number": "044",
+      "category": "technical",
+      "mdFile": "044-publish-bottom-of-funnel-pages-with-fast-direct-an.md"
+    },
+    {
+      "file": "045-leverage-social-media-platforms-tiktok-instagram-f.html",
+      "title": "Leverage Social Media Platforms (TikTok/Instagram) for Topical Visibility Before Investing in SEO",
+      "number": "045",
+      "category": "technical",
+      "mdFile": "045-leverage-social-media-platforms-tiktok-instagram-f.md"
+    },
+    {
+      "file": "046-google-merchant-center-feed-optimization-and-image.html",
+      "title": "Google Merchant Center Feed Optimization and Image Use for Ecommerce",
+      "number": "046",
+      "category": "technical",
+      "mdFile": "046-google-merchant-center-feed-optimization-and-image.md"
+    },
+    {
+      "file": "047-truth-alignment-framework-for-llm-seo.html",
+      "title": "Truth Alignment Framework for LLM SEO",
+      "number": "047",
+      "category": "ai-search",
+      "mdFile": "047-truth-alignment-framework-for-llm-seo.md"
+    },
+    {
+      "file": "048-optimize-for-branded-keywords-in-seo-and-ai-search.html",
+      "title": "Optimize for Branded Keywords in SEO and AI Search",
+      "number": "048",
+      "category": "ai-search",
+      "mdFile": "048-optimize-for-branded-keywords-in-seo-and-ai-search.md"
+    },
+    {
+      "file": "049-compact-keywords-strategy-focused-pages-targeting-.html",
+      "title": "Compact Keywords Strategy - Focused Pages Targeting Buyer Searchers",
+      "number": "049",
+      "category": "technical",
+      "mdFile": "049-compact-keywords-strategy-focused-pages-targeting-.md"
+    },
+    {
+      "file": "050-create-niche-feature-specific-competitor-compariso.html",
+      "title": "Create Niche, Feature-Specific Competitor Comparison Pages",
+      "number": "050",
+      "category": "technical",
+      "mdFile": "050-create-niche-feature-specific-competitor-compariso.md"
+    },
+    {
+      "file": "051-leverage-press-releases-for-brand-trust-and-ai-sea.html",
+      "title": "Leverage Press Releases for Brand Trust and AI Search Signals",
+      "number": "051",
+      "category": "ai-search",
+      "mdFile": "051-leverage-press-releases-for-brand-trust-and-ai-sea.md"
+    },
+    {
+      "file": "052-create-explicit-machine-readable-brand-information.html",
+      "title": "Create Explicit, Machine-Readable Brand Information Pages for AI",
+      "number": "052",
+      "category": "ai-search",
+      "mdFile": "052-create-explicit-machine-readable-brand-information.md"
+    },
+    {
+      "file": "053-build-linkable-assets-focused-on-user-value-for-ba.html",
+      "title": "Build Linkable Assets Focused on User Value for Backlinks and SEO",
+      "number": "053",
+      "category": "link-building",
+      "mdFile": "053-build-linkable-assets-focused-on-user-value-for-ba.md"
+    },
+    {
+      "file": "054-leverage-ai-generated-parasite-seo-content-on-thir.html",
+      "title": "Leverage AI-Generated “Parasite SEO” Content on Third-Party Platforms",
+      "number": "054",
+      "category": "ai-search",
+      "mdFile": "054-leverage-ai-generated-parasite-seo-content-on-thir.md"
+    },
+    {
+      "file": "055-verticalize-keywords-by-creating-industry-role-spe.html",
+      "title": "Verticalize Keywords by Creating Industry/Role-Specific Content Variations",
+      "number": "055",
+      "category": "content",
+      "mdFile": "055-verticalize-keywords-by-creating-industry-role-spe.md"
+    },
+    {
+      "file": "056-use-internal-linking-via-semantic-and-hierarchical.html",
+      "title": "Use Internal Linking via Semantic and Hierarchical Clusters",
+      "number": "056",
+      "category": "link-building",
+      "mdFile": "056-use-internal-linking-via-semantic-and-hierarchical.md"
+    },
+    {
+      "file": "057-enhance-on-page-seo-by-including-semantic-and-supp.html",
+      "title": "Enhance On-Page SEO by Including Semantic and Supporting Keywords",
+      "number": "057",
+      "category": "technical",
+      "mdFile": "057-enhance-on-page-seo-by-including-semantic-and-supp.md"
+    },
+    {
+      "file": "058-use-ai-tools-to-write-and-improve-featured-snippet.html",
+      "title": "Use AI Tools to Write and Improve Featured Snippet Content",
+      "number": "058",
+      "category": "ai-search",
+      "mdFile": "058-use-ai-tools-to-write-and-improve-featured-snippet.md"
+    },
+    {
+      "file": "059-press-release-manipulation-for-seo-rankings.html",
+      "title": "Press Release Manipulation for SEO Rankings",
+      "number": "059",
+      "category": "technical",
+      "mdFile": "059-press-release-manipulation-for-seo-rankings.md"
+    },
+    {
+      "file": "060-ai-synthesis-exploitation-via-press-releases.html",
+      "title": "AI Synthesis Exploitation via Press Releases",
+      "number": "060",
+      "category": "ai-search",
+      "mdFile": "060-ai-synthesis-exploitation-via-press-releases.md"
+    },
+    {
+      "file": "061-newsjacking-to-gain-seo-and-brand-awareness.html",
+      "title": "Newsjacking to Gain SEO and Brand Awareness",
+      "number": "061",
+      "category": "ai-search",
+      "mdFile": "061-newsjacking-to-gain-seo-and-brand-awareness.md"
+    },
+    {
+      "file": "062-leveraging-press-release-distribution-packages-for.html",
+      "title": "Leveraging Press Release Distribution Packages for Cost-Effective SEO",
+      "number": "062",
+      "category": "technical",
+      "mdFile": "062-leveraging-press-release-distribution-packages-for.md"
+    },
+    {
+      "file": "063-pushing-negative-content-out-of-page-one-using-pre.html",
+      "title": "Pushing Negative Content Out of Page One Using Press Releases",
+      "number": "063",
+      "category": "content",
+      "mdFile": "063-pushing-negative-content-out-of-page-one-using-pre.md"
+    },
+    {
+      "file": "064-capitalizing-on-ai-generated-content-platforms-for.html",
+      "title": "Capitalizing on AI-Generated Content Platforms for Massive Traffic Growth",
+      "number": "064",
+      "category": "ai-search",
+      "mdFile": "064-capitalizing-on-ai-generated-content-platforms-for.md"
+    },
+    {
+      "file": "065-including-author-and-transparency-information-on-a.html",
+      "title": "Including Author and Transparency Information on AI Content",
+      "number": "065",
+      "category": "ai-search",
+      "mdFile": "065-including-author-and-transparency-information-on-a.md"
+    },
+    {
+      "file": "066-introductory-anchor-link-for-lost-rankings.html",
+      "title": "Introductory Anchor Link for Lost Rankings",
+      "number": "066",
+      "category": "link-building",
+      "mdFile": "066-introductory-anchor-link-for-lost-rankings.md"
+    },
+    {
+      "file": "067-regular-content-refresh-and-update.html",
+      "title": "Regular Content Refresh and Update",
+      "number": "067",
+      "category": "content",
+      "mdFile": "067-regular-content-refresh-and-update.md"
+    },
+    {
+      "file": "068-create-long-tail-keyword-landing-pages.html",
+      "title": "Create Long-Tail Keyword Landing Pages",
+      "number": "068",
+      "category": "ai-search",
+      "mdFile": "068-create-long-tail-keyword-landing-pages.md"
+    },
+    {
+      "file": "069-user-generated-content-via-forums-or-q-a-sections.html",
+      "title": "User-Generated Content via Forums or Q&A Sections",
+      "number": "069",
+      "category": "content",
+      "mdFile": "069-user-generated-content-via-forums-or-q-a-sections.md"
+    },
+    {
+      "file": "070-programmatic-seo-with-structured-data-turned-into-.html",
+      "title": "Programmatic SEO with Structured Data Turned Into Pages",
+      "number": "070",
+      "category": "technical",
+      "mdFile": "070-programmatic-seo-with-structured-data-turned-into-.md"
+    },
+    {
+      "file": "071-link-building-for-competitive-keywords.html",
+      "title": "Link Building for Competitive Keywords",
+      "number": "071",
+      "category": "link-building",
+      "mdFile": "071-link-building-for-competitive-keywords.md"
+    },
+    {
+      "file": "072-index-cleanup-and-content-pruning.html",
+      "title": "Index Cleanup and Content Pruning",
+      "number": "072",
+      "category": "content",
+      "mdFile": "072-index-cleanup-and-content-pruning.md"
+    },
+    {
+      "file": "073-compact-keywords-focus.html",
+      "title": "Compact Keywords Focus",
+      "number": "073",
+      "category": "technical",
+      "mdFile": "073-compact-keywords-focus.md"
+    },
+    {
+      "file": "074-language-and-geo-oriented-landing-pages-without-fo.html",
+      "title": "Language and Geo-Oriented Landing Pages without Forced Translation",
+      "number": "074",
+      "category": "conversion",
+      "mdFile": "074-language-and-geo-oriented-landing-pages-without-fo.md"
+    },
+    {
+      "file": "075-hreflang-tag-implementation-for-multilingual-sites.html",
+      "title": "Hreflang Tag Implementation for Multilingual Sites",
+      "number": "075",
+      "category": "technical",
+      "mdFile": "075-hreflang-tag-implementation-for-multilingual-sites.md"
+    },
+    {
+      "file": "076-natural-anchor-text-ratio-for-backlink-profiles.html",
+      "title": "Natural Anchor Text Ratio for Backlink Profiles",
+      "number": "076",
+      "category": "link-building",
+      "mdFile": "076-natural-anchor-text-ratio-for-backlink-profiles.md"
+    },
+    {
+      "file": "077-local-citation-building-via-quality-directories.html",
+      "title": "Local Citation Building via Quality Directories",
+      "number": "077",
+      "category": "local-seo",
+      "mdFile": "077-local-citation-building-via-quality-directories.md"
+    },
+    {
+      "file": "078-white-hat-link-building-via-journalist-outreach-an.html",
+      "title": "White Hat Link Building via Journalist Outreach and Linkable Assets",
+      "number": "078",
+      "category": "link-building",
+      "mdFile": "078-white-hat-link-building-via-journalist-outreach-an.md"
+    },
+    {
+      "file": "079-risk-aware-use-of-automated-black-hat-pbn-link-bui.html",
+      "title": "Risk-Aware Use of Automated Black Hat PBN Link Building (Not Recommended for Most)",
+      "number": "079",
+      "category": "link-building",
+      "mdFile": "079-risk-aware-use-of-automated-black-hat-pbn-link-bui.md"
+    },
+    {
+      "file": "080-site-redesign-with-proper-301-redirects.html",
+      "title": "Site Redesign with Proper 301 Redirects",
+      "number": "080",
+      "category": "technical",
+      "mdFile": "080-site-redesign-with-proper-301-redirects.md"
+    },
+    {
+      "file": "081-avoid-over-optimized-anchor-text-in-backlinks.html",
+      "title": "Avoid Over-Optimized Anchor Text in Backlinks",
+      "number": "081",
+      "category": "link-building",
+      "mdFile": "081-avoid-over-optimized-anchor-text-in-backlinks.md"
+    },
+    {
+      "file": "082-local-seo-acceleration-using-fiverr-or-freelance-s.html",
+      "title": "Local SEO Acceleration Using Fiverr or Freelance Services for Citations",
+      "number": "082",
+      "category": "local-seo",
+      "mdFile": "082-local-seo-acceleration-using-fiverr-or-freelance-s.md"
+    },
+    {
+      "file": "083-disavow-backlinks-only-when-negative-seo-is-confir.html",
+      "title": "Disavow Backlinks Only When Negative SEO is Confirmed",
+      "number": "083",
+      "category": "link-building",
+      "mdFile": "083-disavow-backlinks-only-when-negative-seo-is-confir.md"
+    },
+    {
+      "file": "084-choosing-backlinks-from-relevant-traffic-driving-r.html",
+      "title": "Choosing Backlinks from Relevant, Traffic-Driving, Ranking Pages over Just High Authority Domains",
+      "number": "084",
+      "category": "ai-search",
+      "mdFile": "084-choosing-backlinks-from-relevant-traffic-driving-r.md"
+    },
+    {
+      "file": "085-dedicated-ip-address-for-seo.html",
+      "title": "Dedicated IP Address for SEO",
+      "number": "085",
+      "category": "technical",
+      "mdFile": "085-dedicated-ip-address-for-seo.md"
+    },
+    {
+      "file": "086-careful-configuration-of-cloudflare-to-avoid-seo-t.html",
+      "title": "Careful Configuration of Cloudflare to Avoid SEO Traffic Drops",
+      "number": "086",
+      "category": "technical",
+      "mdFile": "086-careful-configuration-of-cloudflare-to-avoid-seo-t.md"
+    },
+    {
+      "file": "087-ignore-the-myth-that-shared-ip-addresses-alone-har.html",
+      "title": "Ignore the Myth That Shared IP Addresses Alone Harm SEO",
+      "number": "087",
+      "category": "technical",
+      "mdFile": "087-ignore-the-myth-that-shared-ip-addresses-alone-har.md"
+    },
+    {
+      "file": "088-monitor-sudden-seo-drops-for-possible-cdn-configur.html",
+      "title": "Monitor Sudden SEO Drops for Possible CDN Configuration Errors",
+      "number": "088",
+      "category": "technical",
+      "mdFile": "088-monitor-sudden-seo-drops-for-possible-cdn-configur.md"
+    },
+    {
+      "file": "089-use-bottom-of-funnel-keyword-targeting-for-lead-co.html",
+      "title": "Use Bottom-of-Funnel Keyword Targeting for Lead Conversion SEO",
+      "number": "089",
+      "category": "conversion",
+      "mdFile": "089-use-bottom-of-funnel-keyword-targeting-for-lead-co.md"
+    },
+    {
+      "file": "090-site-architecture-hub-spoke-structure.html",
+      "title": "Site Architecture Hub & Spoke Structure",
+      "number": "090",
+      "category": "technical",
+      "mdFile": "090-site-architecture-hub-spoke-structure.md"
+    },
+    {
+      "file": "091-location-based-hub-pages-for-local-seo.html",
+      "title": "Location-Based Hub Pages for Local SEO",
+      "number": "091",
+      "category": "local-seo",
+      "mdFile": "091-location-based-hub-pages-for-local-seo.md"
+    },
+    {
+      "file": "092-one-sentence-value-proposition-for-seo-and-copywri.html",
+      "title": "One-Sentence Value Proposition for SEO and Copywriting",
+      "number": "092",
+      "category": "content",
+      "mdFile": "092-one-sentence-value-proposition-for-seo-and-copywri.md"
+    },
+    {
+      "file": "093-author-pages-to-enhance-e-a-t-and-rank-for-author-.html",
+      "title": "Author Pages to Enhance E-A-T and Rank for Author Names",
+      "number": "093",
+      "category": "authority",
+      "mdFile": "093-author-pages-to-enhance-e-a-t-and-rank-for-author-.md"
+    },
+    {
+      "file": "094-link-hub-pages-prominently-in-footer-and-navigatio.html",
+      "title": "Link Hub Pages Prominently in Footer and Navigation for Accessibility",
+      "number": "094",
+      "category": "link-building",
+      "mdFile": "094-link-hub-pages-prominently-in-footer-and-navigatio.md"
+    },
+    {
+      "file": "095-persistent-long-term-focus-to-increase-surface-are.html",
+      "title": "Persistent, Long-Term Focus to Increase Surface Area for SEO & Business Luck",
+      "number": "095",
+      "category": "technical",
+      "mdFile": "095-persistent-long-term-focus-to-increase-surface-are.md"
+    },
+    {
+      "file": "096-use-the-one-sentence-value-proposition-across-mark.html",
+      "title": "Use the One-Sentence Value Proposition Across Marketing Channels for Consistency",
+      "number": "096",
+      "category": "conversion",
+      "mdFile": "096-use-the-one-sentence-value-proposition-across-mark.md"
+    },
+    {
+      "file": "097-hierarchical-website-structure-hub-pages.html",
+      "title": "Hierarchical Website Structure & Hub Pages",
+      "number": "097",
+      "category": "technical",
+      "mdFile": "097-hierarchical-website-structure-hub-pages.md"
+    },
+    {
+      "file": "098-write-original-useful-content-for-people-not-just-.html",
+      "title": "Write Original, Useful Content for People, Not Just for Search Engines",
+      "number": "098",
+      "category": "content",
+      "mdFile": "098-write-original-useful-content-for-people-not-just-.md"
+    },
+    {
+      "file": "099-keyword-rich-image-file-naming-for-image-search-ra.html",
+      "title": "Keyword-Rich Image File Naming for Image Search Ranking",
+      "number": "099",
+      "category": "technical",
+      "mdFile": "099-keyword-rich-image-file-naming-for-image-search-ra.md"
+    },
+    {
+      "file": "100-incorporate-exact-google-search-console-queries-in.html",
+      "title": "Incorporate Exact Google Search Console Queries into Relevant Pages",
+      "number": "100",
+      "category": "technical",
+      "mdFile": "100-incorporate-exact-google-search-console-queries-in.md"
+    },
+    {
+      "file": "101-internal-links-embedded-in-the-middle-of-paragraph.html",
+      "title": "Internal Links Embedded in the Middle of Paragraphs",
+      "number": "101",
+      "category": "link-building",
+      "mdFile": "101-internal-links-embedded-in-the-middle-of-paragraph.md"
+    },
+    {
+      "file": "102-use-ultra-long-page-titles-that-cover-multiple-sea.html",
+      "title": "Use Ultra-Long Page Titles That Cover Multiple Search Intents",
+      "number": "102",
+      "category": "technical",
+      "mdFile": "102-use-ultra-long-page-titles-that-cover-multiple-sea.md"
+    },
+    {
+      "file": "103-annual-content-updating-with-year-in-titles-urls-a.html",
+      "title": "Annual Content Updating with Year in Titles, URLs, and Headers",
+      "number": "103",
+      "category": "content",
+      "mdFile": "103-annual-content-updating-with-year-in-titles-urls-a.md"
+    },
+    {
+      "file": "104-earn-backlinks-by-uploading-free-quality-photos-to.html",
+      "title": "Earn Backlinks by Uploading Free Quality Photos to Stock Sites (Unsplash Backlink Hack)",
+      "number": "104",
+      "category": "link-building",
+      "mdFile": "104-earn-backlinks-by-uploading-free-quality-photos-to.md"
+    },
+    {
+      "file": "105-parasite-seo-using-shared-ai-chat-urls.html",
+      "title": "Parasite SEO Using Shared AI Chat URLs",
+      "number": "105",
+      "category": "ai-search",
+      "mdFile": "105-parasite-seo-using-shared-ai-chat-urls.md"
+    },
+    {
+      "file": "106-leveraging-archived-content-on-archive-org-for-seo.html",
+      "title": "Leveraging Archived Content on Archive.org for SEO Intelligence or Reputation Management",
+      "number": "106",
+      "category": "content",
+      "mdFile": "106-leveraging-archived-content-on-archive-org-for-seo.md"
+    },
+    {
+      "file": "107-controlled-use-of-share-features-on-ai-platforms-f.html",
+      "title": "Controlled Use of “Share” Features on AI Platforms for SEO Visibility",
+      "number": "107",
+      "category": "ai-search",
+      "mdFile": "107-controlled-use-of-share-features-on-ai-platforms-f.md"
+    },
+    {
+      "file": "108-building-backlinks-to-parasite-seo-pages-to-enhanc.html",
+      "title": "Building Backlinks to Parasite SEO Pages to Enhance Ranking",
+      "number": "108",
+      "category": "link-building",
+      "mdFile": "108-building-backlinks-to-parasite-seo-pages-to-enhanc.md"
+    },
+    {
+      "file": "109-using-keyword-rich-prompts-to-generate-targeted-ai.html",
+      "title": "Using Keyword-Rich Prompts to Generate Targeted AI Content for Ranking",
+      "number": "109",
+      "category": "ai-search",
+      "mdFile": "109-using-keyword-rich-prompts-to-generate-targeted-ai.md"
+    },
+    {
+      "file": "110-answer-real-people-s-questions-to-satisfy-search-i.html",
+      "title": "Answer Real People’s Questions to Satisfy Search Intent",
+      "number": "110",
+      "category": "technical",
+      "mdFile": "110-answer-real-people-s-questions-to-satisfy-search-i.md"
+    },
+    {
+      "file": "111-contextual-programmatic-internal-linking-based-on-.html",
+      "title": "Contextual Programmatic Internal Linking Based on Search Intent and Entities",
+      "number": "111",
+      "category": "link-building",
+      "mdFile": "111-contextual-programmatic-internal-linking-based-on-.md"
+    },
+    {
+      "file": "112-focus-seo-on-transactional-queries-over-purely-inf.html",
+      "title": "Focus SEO on Transactional Queries Over Purely Informational Queries",
+      "number": "112",
+      "category": "technical",
+      "mdFile": "112-focus-seo-on-transactional-queries-over-purely-inf.md"
+    },
+    {
+      "file": "113-clearly-convey-your-unique-right-to-win-in-meta-ti.html",
+      "title": "Clearly Convey Your Unique “Right to Win” in Meta Titles and Descriptions",
+      "number": "113",
+      "category": "technical",
+      "mdFile": "113-clearly-convey-your-unique-right-to-win-in-meta-ti.md"
+    },
+    {
+      "file": "114-add-tl-dr-summaries-at-the-beginning-of-content-to.html",
+      "title": "Add TL;DR Summaries at the Beginning of Content to Boost Engagement and Conversions",
+      "number": "114",
+      "category": "content",
+      "mdFile": "114-add-tl-dr-summaries-at-the-beginning-of-content-to.md"
+    },
+    {
+      "file": "115-optimize-youtube-videos-for-google-search-ranking.html",
+      "title": "Optimize YouTube Videos for Google Search Ranking",
+      "number": "115",
+      "category": "youtube",
+      "mdFile": "115-optimize-youtube-videos-for-google-search-ranking.md"
+    },
+    {
+      "file": "116-refresh-evergreen-content-and-interlink-from-new-h.html",
+      "title": "Refresh Evergreen Content and Interlink from New High-Quality Content",
+      "number": "116",
+      "category": "link-building",
+      "mdFile": "116-refresh-evergreen-content-and-interlink-from-new-h.md"
+    },
+    {
+      "file": "117-why-it-works.html",
+      "title": "Why It Works:",
+      "number": "117",
+      "category": "technical",
+      "mdFile": "117-why-it-works.md"
+    },
+    {
+      "file": "118-use-first-sentence-of-articles-as-meta-description.html",
+      "title": "Use First Sentence of Articles as Meta Descriptions",
+      "number": "118",
+      "category": "content",
+      "mdFile": "118-use-first-sentence-of-articles-as-meta-description.md"
+    },
+    {
+      "file": "119-include-brand-name-in-page-titles.html",
+      "title": "Include Brand Name in Page Titles",
+      "number": "119",
+      "category": "technical",
+      "mdFile": "119-include-brand-name-in-page-titles.md"
+    },
+    {
+      "file": "120-use-richly-descriptive-alt-text-on-all-images.html",
+      "title": "Use Richly Descriptive Alt Text on All Images",
+      "number": "120",
+      "category": "technical",
+      "mdFile": "120-use-richly-descriptive-alt-text-on-all-images.md"
+    },
+    {
+      "file": "121-avoid-using-ads-or-non-content-elements-as-heading.html",
+      "title": "Avoid Using Ads or Non-Content Elements as Heading Tags (H2, H3, etc.)",
+      "number": "121",
+      "category": "content",
+      "mdFile": "121-avoid-using-ads-or-non-content-elements-as-heading.md"
+    },
+    {
+      "file": "122-proper-use-of-nofollow-and-sponsored-link-attribut.html",
+      "title": "Proper Use of NoFollow and Sponsored Link Attributes",
+      "number": "122",
+      "category": "link-building",
+      "mdFile": "122-proper-use-of-nofollow-and-sponsored-link-attribut.md"
+    },
+    {
+      "file": "123-interlinking-articles-with-relevant-internal-links.html",
+      "title": "Interlinking Articles with Relevant Internal Links and Citing High-Quality Sources",
+      "number": "123",
+      "category": "link-building",
+      "mdFile": "123-interlinking-articles-with-relevant-internal-links.md"
+    },
+    {
+      "file": "124-use-extensive-multimedia-images-videos-to-engage-v.html",
+      "title": "Use Extensive Multimedia (Images, Videos) to Engage Visitors",
+      "number": "124",
+      "category": "youtube",
+      "mdFile": "124-use-extensive-multimedia-images-videos-to-engage-v.md"
+    },
+    {
+      "file": "125-develop-bottom-of-funnel-seo-web-apps-to-drive-eng.html",
+      "title": "Develop Bottom-of-Funnel SEO Web Apps to Drive Engagement and Revenue",
+      "number": "125",
+      "category": "technical",
+      "mdFile": "125-develop-bottom-of-funnel-seo-web-apps-to-drive-eng.md"
+    },
+    {
+      "file": "126-compact-keywords-targeting.html",
+      "title": "Compact Keywords Targeting",
+      "number": "126",
+      "category": "technical",
+      "mdFile": "126-compact-keywords-targeting.md"
+    },
+    {
+      "file": "127-avoid-query-parameters-in-urls.html",
+      "title": "Avoid Query Parameters in URLs",
+      "number": "127",
+      "category": "technical",
+      "mdFile": "127-avoid-query-parameters-in-urls.md"
+    },
+    {
+      "file": "128-strengthen-internal-linking-and-breadcrumb-navigat.html",
+      "title": "Strengthen Internal Linking and Breadcrumb Navigation",
+      "number": "128",
+      "category": "link-building",
+      "mdFile": "128-strengthen-internal-linking-and-breadcrumb-navigat.md"
+    },
+    {
+      "file": "129-create-bottom-of-funnel-seo-landing-pages.html",
+      "title": "Create Bottom of Funnel SEO Landing Pages",
+      "number": "129",
+      "category": "conversion",
+      "mdFile": "129-create-bottom-of-funnel-seo-landing-pages.md"
+    },
+    {
+      "file": "130-develop-a-natural-topically-rich-backlink-profile.html",
+      "title": "Develop a Natural, Topically Rich Backlink Profile",
+      "number": "130",
+      "category": "link-building",
+      "mdFile": "130-develop-a-natural-topically-rich-backlink-profile.md"
+    },
+    {
+      "file": "131-prioritize-above-the-fold-content-to-satisfy-searc.html",
+      "title": "Prioritize “Above the Fold” Content to Satisfy Search Intent",
+      "number": "131",
+      "category": "content",
+      "mdFile": "131-prioritize-above-the-fold-content-to-satisfy-searc.md"
+    },
+    {
+      "file": "132-target-keywords-better-than-competitors-by-fully-t.html",
+      "title": "Target Keywords Better Than Competitors by Fully Thinking Through Search Intent",
+      "number": "132",
+      "category": "technical",
+      "mdFile": "132-target-keywords-better-than-competitors-by-fully-t.md"
+    },
+    {
+      "file": "133-leverage-external-marketing-to-amplify-seo-efforts.html",
+      "title": "Leverage External Marketing to Amplify SEO Efforts Post Update",
+      "number": "133",
+      "category": "technical",
+      "mdFile": "133-leverage-external-marketing-to-amplify-seo-efforts.md"
+    },
+    {
+      "file": "134-niche-specific-faq-schema-optimization.html",
+      "title": "Niche-Specific FAQ Schema Optimization",
+      "number": "134",
+      "category": "technical",
+      "mdFile": "134-niche-specific-faq-schema-optimization.md"
+    },
+    {
+      "file": "135-forcing-google-to-re-crawl-and-re-evaluate-content.html",
+      "title": "Forcing Google to Re-Crawl and Re-Evaluate Content via UI or Theme Changes",
+      "number": "135",
+      "category": "content",
+      "mdFile": "135-forcing-google-to-re-crawl-and-re-evaluate-content.md"
+    },
+    {
+      "file": "136-targeting-low-or-no-search-volume-purchase-intent-.html",
+      "title": "Targeting Low or No Search Volume Purchase Intent Keywords",
+      "number": "136",
+      "category": "technical",
+      "mdFile": "136-targeting-low-or-no-search-volume-purchase-intent-.md"
+    },
+    {
+      "file": "137-adding-emojis-in-meta-descriptions-to-boost-click-.html",
+      "title": "Adding Emojis in Meta Descriptions to Boost Click-Through Rates",
+      "number": "137",
+      "category": "technical",
+      "mdFile": "137-adding-emojis-in-meta-descriptions-to-boost-click-.md"
+    },
+    {
+      "file": "138-using-scholarship-offers-to-acquire-high-authority.html",
+      "title": "Using Scholarship Offers to Acquire High-Authority .edu Backlinks",
+      "number": "138",
+      "category": "link-building",
+      "mdFile": "138-using-scholarship-offers-to-acquire-high-authority.md"
+    },
+    {
+      "file": "139-creating-high-quality-local-gateway-pages-for-e-co.html",
+      "title": "Creating High-Quality Local Gateway Pages for E-commerce Storefronts",
+      "number": "139",
+      "category": "local-seo",
+      "mdFile": "139-creating-high-quality-local-gateway-pages-for-e-co.md"
+    },
+    {
+      "file": "140-publishing-content-targeting-future-or-emerging-ke.html",
+      "title": "Publishing Content Targeting Future or Emerging Keywords (Existing Keywords Strategy)",
+      "number": "140",
+      "category": "content",
+      "mdFile": "140-publishing-content-targeting-future-or-emerging-ke.md"
+    },
+    {
+      "file": "141-keyword-placement-optimization.html",
+      "title": "Keyword Placement Optimization",
+      "number": "141",
+      "category": "technical",
+      "mdFile": "141-keyword-placement-optimization.md"
+    },
+    {
+      "file": "142-natural-keyword-variation-in-headings.html",
+      "title": "Natural Keyword Variation in Headings",
+      "number": "142",
+      "category": "technical",
+      "mdFile": "142-natural-keyword-variation-in-headings.md"
+    },
+    {
+      "file": "143-concise-above-the-fold-answers-to-searcher-questio.html",
+      "title": "Concise, Above-the-Fold Answers to Searcher Questions",
+      "number": "143",
+      "category": "technical",
+      "mdFile": "143-concise-above-the-fold-answers-to-searcher-questio.md"
+    },
+    {
+      "file": "144-predictive-content-structuring-for-deeper-engageme.html",
+      "title": "Predictive Content Structuring for Deeper Engagement",
+      "number": "144",
+      "category": "content",
+      "mdFile": "144-predictive-content-structuring-for-deeper-engageme.md"
+    },
+    {
+      "file": "145-writing-content-for-searchers-not-just-search-engi.html",
+      "title": "Writing Content for Searchers, Not Just Search Engines",
+      "number": "145",
+      "category": "content",
+      "mdFile": "145-writing-content-for-searchers-not-just-search-engi.md"
+    },
+    {
+      "file": "146-avoid-keyword-stuffing-in-headlines-and-content.html",
+      "title": "Avoid Keyword Stuffing in Headlines and Content",
+      "number": "146",
+      "category": "content",
+      "mdFile": "146-avoid-keyword-stuffing-in-headlines-and-content.md"
+    },
+    {
+      "file": "147-focus-on-bottom-of-funnel-purchase-intent-keywords.html",
+      "title": "Focus on Bottom-of-Funnel, Purchase-Intent Keywords for Higher Conversion",
+      "number": "147",
+      "category": "conversion",
+      "mdFile": "147-focus-on-bottom-of-funnel-purchase-intent-keywords.md"
+    },
+    {
+      "file": "148-building-trust-and-engagement-by-encouraging-conte.html",
+      "title": "Building Trust and Engagement by Encouraging Content Interaction",
+      "number": "148",
+      "category": "content",
+      "mdFile": "148-building-trust-and-engagement-by-encouraging-conte.md"
+    },
+    {
+      "file": "149-proper-redirect-use-for-seo-preservation.html",
+      "title": "Proper Redirect Use for SEO Preservation",
+      "number": "149",
+      "category": "technical",
+      "mdFile": "149-proper-redirect-use-for-seo-preservation.md"
+    },
+    {
+      "file": "150-parasite-seo-via-user-generated-content-platforms.html",
+      "title": "Parasite SEO via User-Generated Content Platforms",
+      "number": "150",
+      "category": "content",
+      "mdFile": "150-parasite-seo-via-user-generated-content-platforms.md"
+    },
+    {
+      "file": "151-repurposing-website-content-into-threads-for-paras.html",
+      "title": "Repurposing Website Content into Threads for Parasite SEO",
+      "number": "151",
+      "category": "content",
+      "mdFile": "151-repurposing-website-content-into-threads-for-paras.md"
+    },
+    {
+      "file": "152-gradual-increase-in-content-posting-velocity.html",
+      "title": "Gradual Increase in Content Posting Velocity",
+      "number": "152",
+      "category": "content",
+      "mdFile": "152-gradual-increase-in-content-posting-velocity.md"
+    },
+    {
+      "file": "153-using-ai-to-automate-content-repurposing-for-threa.html",
+      "title": "Using AI to Automate Content Repurposing for Threads",
+      "number": "153",
+      "category": "ai-search",
+      "mdFile": "153-using-ai-to-automate-content-repurposing-for-threa.md"
+    },
+    {
+      "file": "154-including-media-in-user-generated-content-for-high.html",
+      "title": "Including Media in User-Generated Content for Higher Engagement and Ranking",
+      "number": "154",
+      "category": "content",
+      "mdFile": "154-including-media-in-user-generated-content-for-high.md"
+    },
+    {
+      "file": "155-backlink-building-for-ai-search-features.html",
+      "title": "Backlink Building for AI Search Features",
+      "number": "155",
+      "category": "ai-search",
+      "mdFile": "155-backlink-building-for-ai-search-features.md"
+    },
+    {
+      "file": "156-incorporate-nofollow-links-in-backlink-profiles.html",
+      "title": "Incorporate NoFollow Links in Backlink Profiles",
+      "number": "156",
+      "category": "link-building",
+      "mdFile": "156-incorporate-nofollow-links-in-backlink-profiles.md"
+    },
+    {
+      "file": "157-leverage-unlinked-brand-mentions.html",
+      "title": "Leverage Unlinked Brand Mentions",
+      "number": "157",
+      "category": "link-building",
+      "mdFile": "157-leverage-unlinked-brand-mentions.md"
+    },
+    {
+      "file": "158-target-low-competition-undertargeted-keywords-with.html",
+      "title": "Target Low-Competition, Undertargeted Keywords Without Backlinks",
+      "number": "158",
+      "category": "link-building",
+      "mdFile": "158-target-low-competition-undertargeted-keywords-with.md"
+    },
+    {
+      "file": "159-acquire-high-quality-niche-backlinks-at-reasonable.html",
+      "title": "Acquire High-Quality Niche Backlinks at Reasonable Cost",
+      "number": "159",
+      "category": "link-building",
+      "mdFile": "159-acquire-high-quality-niche-backlinks-at-reasonable.md"
+    },
+    {
+      "file": "160-use-partial-match-anchor-text-primarily-when-build.html",
+      "title": "Use Partial Match Anchor Text Primarily When Building Backlinks",
+      "number": "160",
+      "category": "link-building",
+      "mdFile": "160-use-partial-match-anchor-text-primarily-when-build.md"
+    },
+    {
+      "file": "161-prioritize-digital-pr-for-effective-link-building-.html",
+      "title": "Prioritize Digital PR for Effective Link Building in 2025",
+      "number": "161",
+      "category": "link-building",
+      "mdFile": "161-prioritize-digital-pr-for-effective-link-building-.md"
+    },
+    {
+      "file": "162-find-unique-backlink-opportunities-instead-of-repl.html",
+      "title": "Find Unique Backlink Opportunities Instead of Replicating Competitors",
+      "number": "162",
+      "category": "link-building",
+      "mdFile": "162-find-unique-backlink-opportunities-instead-of-repl.md"
+    },
+    {
+      "file": "163-avoid-shady-link-building-methods-despite-effectiv.html",
+      "title": "Avoid Shady Link Building Methods Despite Effectiveness",
+      "number": "163",
+      "category": "link-building",
+      "mdFile": "163-avoid-shady-link-building-methods-despite-effectiv.md"
+    },
+    {
+      "file": "164-reject-google-disavow-tool-except-in-extreme-cases.html",
+      "title": "Reject Google Disavow Tool Except in Extreme Cases",
+      "number": "164",
+      "category": "technical",
+      "mdFile": "164-reject-google-disavow-tool-except-in-extreme-cases.md"
+    },
+    {
+      "file": "165-create-and-promote-linkable-assets-to-earn-free-qu.html",
+      "title": "Create and Promote Linkable Assets to Earn Free Quality Backlinks",
+      "number": "165",
+      "category": "link-building",
+      "mdFile": "165-create-and-promote-linkable-assets-to-earn-free-qu.md"
+    },
+    {
+      "file": "166-focus-link-building-on-bottom-of-funnel-low-volume.html",
+      "title": "Focus Link Building on Bottom-of-Funnel, Low-Volume Keywords",
+      "number": "166",
+      "category": "link-building",
+      "mdFile": "166-focus-link-building-on-bottom-of-funnel-low-volume.md"
+    },
+    {
+      "file": "167-compact-keywords-seo-strategy.html",
+      "title": "Compact Keywords SEO Strategy",
+      "number": "167",
+      "category": "technical",
+      "mdFile": "167-compact-keywords-seo-strategy.md"
+    },
+    {
+      "file": "168-top-of-mind-brand-awareness-through-multi-channel-.html",
+      "title": "Top-of-Mind Brand Awareness Through Multi-Channel Storytelling",
+      "number": "168",
+      "category": "technical",
+      "mdFile": "168-top-of-mind-brand-awareness-through-multi-channel-.md"
+    },
+    {
+      "file": "169-leveraging-scandals-and-rumors-as-viral-publicity-.html",
+      "title": "Leveraging Scandals and Rumors as Viral Publicity Tools",
+      "number": "169",
+      "category": "technical",
+      "mdFile": "169-leveraging-scandals-and-rumors-as-viral-publicity-.md"
+    },
+    {
+      "file": "170-cultural-incorporation-for-audience-expansion-and-.html",
+      "title": "Cultural Incorporation for Audience Expansion and Loyalty",
+      "number": "170",
+      "category": "technical",
+      "mdFile": "170-cultural-incorporation-for-audience-expansion-and-.md"
+    },
+    {
+      "file": "171-ambiguous-yet-powerful-personal-branding-soft-powe.html",
+      "title": "Ambiguous Yet Powerful Personal Branding (Soft Power Projection)",
+      "number": "171",
+      "category": "technical",
+      "mdFile": "171-ambiguous-yet-powerful-personal-branding-soft-powe.md"
+    },
+    {
+      "file": "172-multi-media-integrated-propaganda-and-message-rein.html",
+      "title": "Multi-Media Integrated Propaganda and Message Reinforcement",
+      "number": "172",
+      "category": "technical",
+      "mdFile": "172-multi-media-integrated-propaganda-and-message-rein.md"
+    },
+    {
+      "file": "173-creating-catchy-repeatable-slogans-political-memes.html",
+      "title": "Creating Catchy, Repeatable Slogans & Political Memes",
+      "number": "173",
+      "category": "technical",
+      "mdFile": "173-creating-catchy-repeatable-slogans-political-memes.md"
+    },
+    {
+      "file": "174-utilizing-client-networks-for-content-disseminatio.html",
+      "title": "Utilizing Client Networks for Content Dissemination",
+      "number": "174",
+      "category": "content",
+      "mdFile": "174-utilizing-client-networks-for-content-disseminatio.md"
+    },
+    {
+      "file": "175-strategic-use-of-emotionally-engaging-delivery-tec.html",
+      "title": "Strategic Use of Emotionally Engaging Delivery Techniques in Communication",
+      "number": "175",
+      "category": "technical",
+      "mdFile": "175-strategic-use-of-emotionally-engaging-delivery-tec.md"
+    },
+    {
+      "file": "176-bingeable-content-ecosystem-through-cross-referenc.html",
+      "title": "Bingeable Content Ecosystem Through Cross-Referencing and Layered Storytelling",
+      "number": "176",
+      "category": "content",
+      "mdFile": "176-bingeable-content-ecosystem-through-cross-referenc.md"
+    },
+    {
+      "file": "177-timing-and-context-sensitivity-for-public-relation.html",
+      "title": "Timing and Context Sensitivity for Public Relations and Branding Investments",
+      "number": "177",
+      "category": "technical",
+      "mdFile": "177-timing-and-context-sensitivity-for-public-relation.md"
+    },
+    {
+      "file": "178-segmented-messaging-for-different-audience-groups.html",
+      "title": "Segmented Messaging for Different Audience Groups",
+      "number": "178",
+      "category": "technical",
+      "mdFile": "178-segmented-messaging-for-different-audience-groups.md"
+    },
+    {
+      "file": "179-competitor-keyword-mining-and-creative-application.html",
+      "title": "Competitor Keyword Mining and Creative Application",
+      "number": "179",
+      "category": "technical",
+      "mdFile": "179-competitor-keyword-mining-and-creative-application.md"
+    },
+    {
+      "file": "180-optimizing-pages-based-on-unexpected-keywords-from.html",
+      "title": "Optimizing Pages Based on Unexpected Keywords from Google Search Console",
+      "number": "180",
+      "category": "technical",
+      "mdFile": "180-optimizing-pages-based-on-unexpected-keywords-from.md"
+    },
+    {
+      "file": "181-using-social-media-and-forums-to-discover-keyword-.html",
+      "title": "Using Social Media and Forums to Discover Keyword Language and Topics",
+      "number": "181",
+      "category": "technical",
+      "mdFile": "181-using-social-media-and-forums-to-discover-keyword-.md"
+    },
+    {
+      "file": "182-creating-customer-personas-via-ai-to-guide-keyword.html",
+      "title": "Creating Customer Personas via AI to Guide Keyword Research and Content Strategy",
+      "number": "182",
+      "category": "ai-search",
+      "mdFile": "182-creating-customer-personas-via-ai-to-guide-keyword.md"
+    },
+    {
+      "file": "183-targeting-bottom-of-funnel-bofu-keywords-with-high.html",
+      "title": "Targeting Bottom-of-Funnel (BOFU) Keywords with High Conversion Potential",
+      "number": "183",
+      "category": "conversion",
+      "mdFile": "183-targeting-bottom-of-funnel-bofu-keywords-with-high.md"
+    },
+    {
+      "file": "184-improving-title-tags-using-actual-keywords-from-go.html",
+      "title": "Improving Title Tags Using Actual Keywords from Google Search Console Data",
+      "number": "184",
+      "category": "technical",
+      "mdFile": "184-improving-title-tags-using-actual-keywords-from-go.md"
+    },
+    {
+      "file": "185-fixing-broken-internal-links-to-enhance-crawlabili.html",
+      "title": "Fixing Broken Internal Links to Enhance Crawlability and User Experience",
+      "number": "185",
+      "category": "link-building",
+      "mdFile": "185-fixing-broken-internal-links-to-enhance-crawlabili.md"
+    },
+    {
+      "file": "186-adding-internal-links-from-high-traffic-pages-to-i.html",
+      "title": "Adding Internal Links from High-Traffic Pages to Important Pages",
+      "number": "186",
+      "category": "link-building",
+      "mdFile": "186-adding-internal-links-from-high-traffic-pages-to-i.md"
+    },
+    {
+      "file": "187-compressing-images-to-improve-page-speed-using-web.html",
+      "title": "Compressing Images to Improve Page Speed Using WebP Format",
+      "number": "187",
+      "category": "technical",
+      "mdFile": "187-compressing-images-to-improve-page-speed-using-web.md"
+    },
+    {
+      "file": "188-building-linkable-assets-to-attract-natural-backli.html",
+      "title": "Building Linkable Assets to Attract Natural Backlinks",
+      "number": "188",
+      "category": "link-building",
+      "mdFile": "188-building-linkable-assets-to-attract-natural-backli.md"
+    },
+    {
+      "file": "189-focusing-on-niche-and-topically-specific-content-t.html",
+      "title": "Focusing on Niche and Topically Specific Content to Rank More Easily",
+      "number": "189",
+      "category": "content",
+      "mdFile": "189-focusing-on-niche-and-topically-specific-content-t.md"
+    },
+    {
+      "file": "190-adopting-a-long-term-mindset-to-build-generational.html",
+      "title": "Adopting a Long-Term Mindset to Build “Generational Assets”",
+      "number": "190",
+      "category": "technical",
+      "mdFile": "190-adopting-a-long-term-mindset-to-build-generational.md"
+    },
+    {
+      "file": "191-balanced-seo-approach.html",
+      "title": "Balanced SEO Approach",
+      "number": "191",
+      "category": "technical",
+      "mdFile": "191-balanced-seo-approach.md"
+    },
+    {
+      "file": "192-diverse-backlink-profile-not-only-niche-relevant-l.html",
+      "title": "Diverse Backlink Profile, Not Only Niche-Relevant Links",
+      "number": "192",
+      "category": "link-building",
+      "mdFile": "192-diverse-backlink-profile-not-only-niche-relevant-l.md"
+    },
+    {
+      "file": "193-submit-sitemap-xml-to-google-as-a-best-practice-bu.html",
+      "title": "Submit Sitemap.xml to Google as a Best Practice but Not Mandatory",
+      "number": "193",
+      "category": "technical",
+      "mdFile": "193-submit-sitemap-xml-to-google-as-a-best-practice-bu.md"
+    },
+    {
+      "file": "194-interlinking-your-own-website-is-beneficial-unless.html",
+      "title": "Interlinking Your Own Website is Beneficial Unless Used Manipulatively",
+      "number": "194",
+      "category": "link-building",
+      "mdFile": "194-interlinking-your-own-website-is-beneficial-unless.md"
+    },
+    {
+      "file": "195-focus-on-creating-helpful-unique-content-tailored-.html",
+      "title": "Focus on Creating Helpful, Unique Content Tailored to Target Keywords",
+      "number": "195",
+      "category": "ai-search",
+      "mdFile": "195-focus-on-creating-helpful-unique-content-tailored-.md"
+    },
+    {
+      "file": "196-page-speed-impacts-user-engagement-more-than-direc.html",
+      "title": "Page Speed Impacts User Engagement More Than Direct Rankings",
+      "number": "196",
+      "category": "technical",
+      "mdFile": "196-page-speed-impacts-user-engagement-more-than-direc.md"
+    },
+    {
+      "file": "197-avoid-overvaluing-schema-markup-as-a-direct-rankin.html",
+      "title": "Avoid Overvaluing Schema Markup as a Direct Ranking Factor",
+      "number": "197",
+      "category": "technical",
+      "mdFile": "197-avoid-overvaluing-schema-markup-as-a-direct-rankin.md"
+    },
+    {
+      "file": "198-understand-the-e-a-t-concept-as-nuanced-guidance-n.html",
+      "title": "Understand the \"E-A-T\" Concept as Nuanced Guidance, Not a Ranking Magic Bullet",
+      "number": "198",
+      "category": "authority",
+      "mdFile": "198-understand-the-e-a-t-concept-as-nuanced-guidance-n.md"
+    },
+    {
+      "file": "199-ai-generated-content-should-be-carefully-tailored-.html",
+      "title": "AI-Generated Content Should Be Carefully Tailored to Audience",
+      "number": "199",
+      "category": "ai-search",
+      "mdFile": "199-ai-generated-content-should-be-carefully-tailored-.md"
+    },
+    {
+      "file": "200-internal-content-formatting-tricks-e-g-bold-keywor.html",
+      "title": "Internal Content Formatting Tricks (e.g., Bold Keywords, Rhyming) Do Not Affect Ranking",
+      "number": "200",
+      "category": "content",
+      "mdFile": "200-internal-content-formatting-tricks-e-g-bold-keywor.md"
+    },
+    {
+      "file": "201-post-purchase-friction-question.html",
+      "title": "Post-Purchase Friction Question",
+      "number": "201",
+      "category": "technical",
+      "mdFile": "201-post-purchase-friction-question.md"
+    },
+    {
+      "file": "202-post-purchase-survey-with-incentive.html",
+      "title": "Post-Purchase Survey with Incentive",
+      "number": "202",
+      "category": "technical",
+      "mdFile": "202-post-purchase-survey-with-incentive.md"
+    },
+    {
+      "file": "203-above-the-fold-content-optimization.html",
+      "title": "Above-the-Fold Content Optimization",
+      "number": "203",
+      "category": "content",
+      "mdFile": "203-above-the-fold-content-optimization.md"
+    },
+    {
+      "file": "204-using-both-images-and-video-for-product-showcasing.html",
+      "title": "Using Both Images and Video for Product Showcasing",
+      "number": "204",
+      "category": "youtube",
+      "mdFile": "204-using-both-images-and-video-for-product-showcasing.md"
+    },
+    {
+      "file": "205-h1-clarity-with-benefit-focused-headline.html",
+      "title": "H1 Clarity with Benefit-Focused Headline",
+      "number": "205",
+      "category": "technical",
+      "mdFile": "205-h1-clarity-with-benefit-focused-headline.md"
+    },
+    {
+      "file": "206-faq-schema-optimized-buyer-intent-questions.html",
+      "title": "FAQ Schema-Optimized Buyer Intent Questions",
+      "number": "206",
+      "category": "technical",
+      "mdFile": "206-faq-schema-optimized-buyer-intent-questions.md"
+    },
+    {
+      "file": "207-avoid-false-bottoms-to-encourage-scrolling.html",
+      "title": "Avoid False Bottoms to Encourage Scrolling",
+      "number": "207",
+      "category": "conversion",
+      "mdFile": "207-avoid-false-bottoms-to-encourage-scrolling.md"
+    },
+    {
+      "file": "208-include-transparent-and-responsive-review-sections.html",
+      "title": "Include Transparent and Responsive Review Sections with Negative Reviews",
+      "number": "208",
+      "category": "local-seo",
+      "mdFile": "208-include-transparent-and-responsive-review-sections.md"
+    },
+    {
+      "file": "209-use-persuasive-microcopy-with-reasoning-on-form-fi.html",
+      "title": "Use Persuasive Microcopy with Reasoning on Form Fields (Reduce Errors & Abandonment)",
+      "number": "209",
+      "category": "conversion",
+      "mdFile": "209-use-persuasive-microcopy-with-reasoning-on-form-fi.md"
+    },
+    {
+      "file": "210-display-phone-number-on-checkout-for-trust-even-if.html",
+      "title": "Display Phone Number on Checkout for Trust (Even if Calls Are Rare)",
+      "number": "210",
+      "category": "authority",
+      "mdFile": "210-display-phone-number-on-checkout-for-trust-even-if.md"
+    },
+    {
+      "file": "211-place-reviews-close-to-checkout-button-to-nudge-pu.html",
+      "title": "Place Reviews Close to Checkout Button to Nudge Purchase",
+      "number": "211",
+      "category": "local-seo",
+      "mdFile": "211-place-reviews-close-to-checkout-button-to-nudge-pu.md"
+    },
+    {
+      "file": "212-price-testing-shipping-messaging-say-we-pay-shippi.html",
+      "title": "Price Testing & Shipping Messaging: Say “We Pay Shipping” Instead of “Free Shipping”",
+      "number": "212",
+      "category": "technical",
+      "mdFile": "212-price-testing-shipping-messaging-say-we-pay-shippi.md"
+    },
+    {
+      "file": "213-focus-on-quality-leads-over-quantity-in-lead-magne.html",
+      "title": "Focus on Quality Leads Over Quantity in Lead Magnets and Funnels",
+      "number": "213",
+      "category": "technical",
+      "mdFile": "213-focus-on-quality-leads-over-quantity-in-lead-magne.md"
+    },
+    {
+      "file": "214-use-manychat-or-similar-messenger-automations-for-.html",
+      "title": "Use ManyChat or Similar Messenger Automations for List Building",
+      "number": "214",
+      "category": "technical",
+      "mdFile": "214-use-manychat-or-similar-messenger-automations-for-.md"
+    },
+    {
+      "file": "215-segment-landing-pages-by-traffic-source-and-purpos.html",
+      "title": "Segment Landing Pages by Traffic Source and Purpose",
+      "number": "215",
+      "category": "conversion",
+      "mdFile": "215-segment-landing-pages-by-traffic-source-and-purpos.md"
+    },
+    {
+      "file": "216-backlink-cleanup-via-disavow-tool.html",
+      "title": "Backlink Cleanup via Disavow Tool",
+      "number": "216",
+      "category": "link-building",
+      "mdFile": "216-backlink-cleanup-via-disavow-tool.md"
+    },
+    {
+      "file": "217-use-google-search-console-domain-and-url-prefix-pr.html",
+      "title": "Use Google Search Console Domain and URL Prefix Properties",
+      "number": "217",
+      "category": "ai-search",
+      "mdFile": "217-use-google-search-console-domain-and-url-prefix-pr.md"
+    },
+    {
+      "file": "218-prioritize-technical-seo-basics-crawlability-index.html",
+      "title": "Prioritize Technical SEO Basics: Crawlability & Indexability",
+      "number": "218",
+      "category": "technical",
+      "mdFile": "218-prioritize-technical-seo-basics-crawlability-index.md"
+    },
+    {
+      "file": "219-leverage-schema-markup-but-don-t-panic-about-it.html",
+      "title": "Leverage Schema Markup but Don’t Panic About It",
+      "number": "219",
+      "category": "technical",
+      "mdFile": "219-leverage-schema-markup-but-don-t-panic-about-it.md"
+    },
+    {
+      "file": "220-resist-relying-solely-on-ai-generated-content.html",
+      "title": "Resist Relying Solely on AI-Generated Content",
+      "number": "220",
+      "category": "ai-search",
+      "mdFile": "220-resist-relying-solely-on-ai-generated-content.md"
+    },
+    {
+      "file": "221-use-content-uniqueness-and-human-voice-to-stand-ou.html",
+      "title": "Use Content Uniqueness and Human Voice to Stand Out Post-Helpful Content Update (HCU)",
+      "number": "221",
+      "category": "content",
+      "mdFile": "221-use-content-uniqueness-and-human-voice-to-stand-ou.md"
+    },
+    {
+      "file": "222-monitor-and-fix-canonical-tags-and-duplicate-conte.html",
+      "title": "Monitor and Fix Canonical Tags and Duplicate Content",
+      "number": "222",
+      "category": "content",
+      "mdFile": "222-monitor-and-fix-canonical-tags-and-duplicate-conte.md"
+    },
+    {
+      "file": "223-use-google-search-console-and-screaming-frog-toget.html",
+      "title": "Use Google Search Console and Screaming Frog Together for SEO Audits",
+      "number": "223",
+      "category": "technical",
+      "mdFile": "223-use-google-search-console-and-screaming-frog-toget.md"
+    },
+    {
+      "file": "224-avoid-indexing-non-production-or-staging-sites.html",
+      "title": "Avoid Indexing Non-Production or Staging Sites",
+      "number": "224",
+      "category": "technical",
+      "mdFile": "224-avoid-indexing-non-production-or-staging-sites.md"
+    },
+    {
+      "file": "225-use-press-releases-for-earned-media-not-link-build.html",
+      "title": "Use Press Releases for Earned Media, Not Link Building",
+      "number": "225",
+      "category": "link-building",
+      "mdFile": "225-use-press-releases-for-earned-media-not-link-build.md"
+    },
+    {
+      "file": "226-submit-xml-sitemaps-and-use-robots-txt-to-facilita.html",
+      "title": "Submit XML Sitemaps and Use Robots.txt to Facilitate Indexing by AI and Search Engines",
+      "number": "226",
+      "category": "ai-search",
+      "mdFile": "226-submit-xml-sitemaps-and-use-robots-txt-to-facilita.md"
+    },
+    {
+      "file": "227-focus-seo-efforts-on-targeting-users-with-purchase.html",
+      "title": "Focus SEO Efforts on Targeting Users with Purchase or Conversion Intent",
+      "number": "227",
+      "category": "conversion",
+      "mdFile": "227-focus-seo-efforts-on-targeting-users-with-purchase.md"
+    },
+    {
+      "file": "228-google-business-profile-optimization.html",
+      "title": "Google Business Profile Optimization",
+      "number": "228",
+      "category": "local-seo",
+      "mdFile": "228-google-business-profile-optimization.md"
+    },
+    {
+      "file": "229-leveraging-local-newsletters-as-a-marketing-channe.html",
+      "title": "Leveraging Local Newsletters as a Marketing Channel",
+      "number": "229",
+      "category": "local-seo",
+      "mdFile": "229-leveraging-local-newsletters-as-a-marketing-channe.md"
+    },
+    {
+      "file": "230-using-reddit-and-quora-for-market-testing-and-dema.html",
+      "title": "Using Reddit and Quora for Market Testing and Demand Validation",
+      "number": "230",
+      "category": "technical",
+      "mdFile": "230-using-reddit-and-quora-for-market-testing-and-dema.md"
+    },
+    {
+      "file": "231-creating-viral-content-for-lead-generation-on-soci.html",
+      "title": "Creating Viral Content for Lead Generation on Social Media",
+      "number": "231",
+      "category": "content",
+      "mdFile": "231-creating-viral-content-for-lead-generation-on-soci.md"
+    },
+    {
+      "file": "232-lead-list-management-and-qualification-using-ai-an.html",
+      "title": "Lead List Management and Qualification Using AI and Automated CRM Workflows",
+      "number": "232",
+      "category": "ai-search",
+      "mdFile": "232-lead-list-management-and-qualification-using-ai-an.md"
+    },
+    {
+      "file": "233-strategic-niche-selection-for-content-and-local-ma.html",
+      "title": "Strategic Niche Selection for Content and Local Marketing",
+      "number": "233",
+      "category": "local-seo",
+      "mdFile": "233-strategic-niche-selection-for-content-and-local-ma.md"
+    },
+    {
+      "file": "234-consistent-weekly-google-business-profile-posts.html",
+      "title": "Consistent Weekly Google Business Profile Posts",
+      "number": "234",
+      "category": "local-seo",
+      "mdFile": "234-consistent-weekly-google-business-profile-posts.md"
+    }
+  ],
+  "categories": {
+    "ai-search": "AI & Search Features",
+    "link-building": "Link Building",
+    "local-seo": "Local SEO",
+    "content": "Content Strategy",
+    "technical": "Technical SEO",
+    "youtube": "YouTube & Video",
+    "authority": "Authority Building",
+    "conversion": "Conversion Optimization",
+    "enterprise": "Enterprise SEO",
+    "tools": "Tools & Resources"
+  },
+  "total": 235,
+  "generated": "2025-09-16T20:24:30.375Z"
+}
