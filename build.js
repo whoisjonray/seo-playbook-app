@@ -94,6 +94,17 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
     // Remove standalone keyword bullet points
     cleanedContent = cleanedContent.replace(/^\s*[-•]\s*(seo|ranking|google|keyword|link|content|local|review|youtube|ai|domain|backlink|optimization|serp)\s*$/gmi, '');
 
+    // Fix broken checkbox lists - merge split checkbox items
+    cleanedContent = cleanedContent.replace(/^- \[ \] (\d+\..+?)\n\s+(\d+\.)/gm, '- [ ] $1 $2');
+    cleanedContent = cleanedContent.replace(/^- \[ \] ([^\n]+)\n\s+(\d+\.)/gm, '- [ ] $1');
+
+    // Remove empty list items and lonely hyphens
+    cleanedContent = cleanedContent.replace(/^\s*-\s*$/gm, '');
+    cleanedContent = cleanedContent.replace(/^-\s+$/gm, '');
+
+    // Fix numbered lists that start with wrong numbers
+    cleanedContent = cleanedContent.replace(/^\d+\.\s+\*\*(.+?)\*\*/gm, '### $1');
+
     // Process headers for better formatting
     cleanedContent = cleanedContent.replace(/^(Execution Steps:)$/gm, '### $1');
     cleanedContent = cleanedContent.replace(/^(Pitfalls & Limits:)$/gm, '### $1');
@@ -115,6 +126,27 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
         gfm: true,
         headerIds: false,
         mangle: false
+    });
+
+    // Special handling for Implementation Checklist section
+    cleanedContent = cleanedContent.replace(/## Implementation Checklist[\s\S]*?(?=##|$)/g, function(match) {
+        // Extract the steps from the broken checklist
+        const steps = [];
+        const stepMatches = match.match(/\d+\.\s+[^\n]+/g);
+        if (stepMatches) {
+            stepMatches.forEach(step => {
+                steps.push(step);
+            });
+        }
+
+        if (steps.length > 0) {
+            let checklist = '## Implementation Checklist\n\n';
+            steps.forEach(step => {
+                checklist += `- [ ] ${step}\n`;
+            });
+            return checklist + '\n';
+        }
+        return match;
     });
 
     // Convert to HTML
