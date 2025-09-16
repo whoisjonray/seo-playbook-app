@@ -65,12 +65,10 @@
 <li>Re-enable features one at a time to isolate any problematic setting.<br>   <strong>Pitfalls &amp; Limits:</strong> Misdiagnosis can lead to unnecessary panic or switching hosting/CDN providers. This process requires technical SEO knowledge and collaboration with hosting/CDN support teams.<br>   <strong>Example:</strong> The indiacarnews.com case where disabling Cloudflare restored rankings immediately, and enabling it again caused rankings to drop, helped isolate the root cause as a Cloudflare misconfiguration rather than SEO penalty or algorithmic cause.</li>
 </ol>
 <h2>Implementation Checklist</h2>
-<ul>
-<li><input disabled="" type="checkbox"> <ol>
-<li>Check Google Search Console for manual actions, security or crawl errors.   2. Roll back recent changes (plugins, CDN configurations, firewall rules) one by one.   Test ACLs, IP whitelists, and user</li>
+<ol>
+<li>Check Google Search Console for manual actions, security or crawl errors.</li>
+<li>Roll back recent changes (plugins, CDN configurations, firewall rules) one by one. Test ACLs, IP whitelists, and user agent allowances to ensure Googlebot is not hindered. Use real time log analyzers to monitor Googlebot access. Re enable features one at a time to isolate any problematic setting.</li>
 </ol>
-</li>
-</ul>
 <h2>Related Strategies</h2>
 <ul>
 <li><a href="/strategies#technical">View All Technical SEO Strategies</a></li>

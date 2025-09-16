@@ -65,20 +65,12 @@
 <li>Contact Cloudflare support if unexplained SEO drops coincide with enabling Cloudflare.<br>   <strong>Pitfalls &amp; Limits:</strong> Incorrect assumptions that Cloudflare&#39;s shared IP addresses inherently harm SEO can lead to unnecessary disabling of beneficial services. Sudden drops often stem from configuration errors, not shared IPs. Without testing and diagnostics, disabling CDN services might degrade site performance or security.<br>   <strong>Example:</strong> A case where disabling Cloudflare restored a client&#39;s site rankings quickly, and re-enabling it caused immediate drops, indicating a misconfiguration rather than a problem with shared IPs themselves.</li>
 </ol>
 <h2>Implementation Checklist</h2>
-<ul>
-<li><input disabled="" type="checkbox"> <ol>
-<li>Review your Cloudflare firewall rules to ensure Googlebot IPs are allowed and not blocked.   2. Check caching rules to confirm full page content is correctly cached or bypassed as needed for SEO</li>
-</ol>
-</li>
-<li><input disabled="" type="checkbox"> <ol start="4">
+<ol>
+<li>Review your Cloudflare firewall rules to ensure Googlebot IPs are allowed and not blocked.</li>
+<li>Check caching rules to confirm full page content is correctly cached or bypassed as needed for SEO sensitive pages. Test site accessibility from multiple geographic locations and with Google Search Console&#39;s URL inspection tool.</li>
 <li>Temporarily disable Cloudflare proxy to diagnose if it&#39;s causing issues.</li>
-</ol>
-</li>
-<li><input disabled="" type="checkbox"> <ol start="5">
 <li>Contact Cloudflare support if unexplained SEO drops coincide with enabling Cloudflare.</li>
 </ol>
-</li>
-</ul>
 <h2>Related Strategies</h2>
 <ul>
 <li><a href="/strategies#technical">View All Technical SEO Strategies</a></li>

@@ -130,23 +130,31 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
 
     // Special handling for Implementation Checklist section
     cleanedContent = cleanedContent.replace(/## Implementation Checklist[\s\S]*?(?=##|$)/g, function(match) {
-        // Extract the steps from the broken checklist
+        // Extract all numbered items from the checklist
+        const allText = match.replace(/## Implementation Checklist/, '').trim();
         const steps = [];
-        const stepMatches = match.match(/\d+\.\s+[^\n]+/g);
-        if (stepMatches) {
-            stepMatches.forEach(step => {
-                steps.push(step);
-            });
+
+        // Match all numbered list items
+        const numberPattern = /(\d+)\.\s+([^]*?)(?=\d+\.|$)/g;
+        let stepMatch;
+        while ((stepMatch = numberPattern.exec(allText)) !== null) {
+            const stepText = stepMatch[2].trim()
+                .replace(/^\s*-\s*\[\s*\]\s*/gm, '') // Remove checkbox markers
+                .replace(/\s+/g, ' ') // Normalize whitespace
+                .trim();
+            if (stepText && stepText.length > 5) {
+                steps.push(stepText);
+            }
         }
 
         if (steps.length > 0) {
             let checklist = '## Implementation Checklist\n\n';
-            steps.forEach(step => {
-                checklist += `- [ ] ${step}\n`;
+            steps.forEach((step, index) => {
+                checklist += `${index + 1}. ${step}\n`;
             });
             return checklist + '\n';
         }
-        return match;
+        return '## Implementation Checklist\n\n*See strategy details above for implementation steps.*\n\n';
     });
 
     // Fix Related Strategies links to use proper web URLs
