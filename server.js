@@ -5,26 +5,35 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Base path - no longer using subdirectory
-const BASE_PATH = '';
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve static files from public directory
-app.use(BASE_PATH, express.static(path.join(__dirname, 'public')));
-
-// Routes with subdirectory support
-app.get(BASE_PATH, (req, res) => {
+// Main routes
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get(`${BASE_PATH}/search`, (req, res) => {
+// Application page
+app.get('/application', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'application.html'));
+});
+
+// Strategies page (with or without trailing slash)
+app.get('/strategies', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'strategies.html'));
+});
+
+app.get('/strategies/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'strategies.html'));
+});
+
+// Search page
+app.get('/search', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'search.html'));
 });
 
-app.get(`${BASE_PATH}/search.html`, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'search.html'));
-});
-
-app.get(`${BASE_PATH}/strategies/:file`, (req, res) => {
+// Individual strategy files
+app.get('/strategies/:file', (req, res) => {
     const filePath = path.join(__dirname, 'public', 'strategies', req.params.file);
     if (fs.existsSync(filePath)) {
         res.sendFile(filePath);
@@ -33,13 +42,17 @@ app.get(`${BASE_PATH}/strategies/:file`, (req, res) => {
     }
 });
 
-// Redirect root to strategies subdirectory
-app.get('/', (req, res) => {
-    res.redirect(BASE_PATH);
+// Redirects for old routes
+app.get('/categories', (req, res) => {
+    res.redirect('/strategies#strategies');
+});
+
+app.get('/category/:category', (req, res) => {
+    res.redirect('/strategies#strategies');
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Awaken Local SEO Strategy Director running at http://localhost:${PORT}${BASE_PATH}`);
-    console.log(`   Ready for deployment at awakenlocal.com${BASE_PATH}`);
+    console.log(`🚀 Awaken Local SEO Platform running at http://localhost:${PORT}`);
+    console.log(`   Ready for deployment at seo.awakenlocal.com`);
 });
