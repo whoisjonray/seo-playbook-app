@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply to Work With Awaken Local - SEO That Delivers Results</title>
+    <meta name="description" content="Apply to work with Awaken Local. We'll assess your market, competition, and knowledge gap opportunities to create a clear path to 2-3x organic traffic.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E5602F;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --border: #e5e7eb;
+            --text: #374151;
+            --text-light: #6b7280;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .subhead {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subhead strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .intro-box {
+            background: #FFF7ED;
+            padding: 1.25rem;
+            border-left: 3px solid var(--primary);
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--text);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 1rem;
+        }
+
+        .video-note {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .video-note h3 {
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .video-note p {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-section h2 {
+            font-size: 1.75rem;
+            color: var(--dark);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group h3 {
+            color: var(--dark);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .field {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .field-help {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .radio-option input,
+        .checkbox-option input {
+            margin-top: 0.25rem;
+        }
+
+        .radio-option label,
+        .checkbox-option label {
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        /* Submit Button */
+        .submit-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .success-message h2 {
+            color: var(--success);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message p {
+            color: var(--text);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .warning-box {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .next-steps {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .next-steps h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .next-steps a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .next-steps a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <img src="/images/awaken-local-logo.png" alt="Awaken Local">
+                <span>Awaken Local</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/strategies">Strategy Directory</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>⚡ Let's Find Out if We Can 2-3x Your Organic Traffic in 90-120 Days</h1>
+            <div class="subhead">
+                <p><strong>Awaken Local isn't a generic SEO service.</strong></p>
+                <p>We only take on clients where we see a clear path to fast, profitable growth using our proprietary <strong>Awaken Keywords™</strong> method.</p>
+            </div>
+            <div class="intro-box">
+                This quick application helps us assess your market, competition, and knowledge gap opportunities before we hop on a call.
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section (Optional - can be added later) -->
+    <section class="video-section" style="display: none;">
+        <div class="container">
+            <div class="video-note">
+                <h3>🧠 Pro Tip from Jon Ray, Founder</h3>
+                <p>"Hey — I'm Jon Ray, founder of Awaken Local. If you're here, it means you're serious about ranking, and you're tired of cookie-cutter SEO. This isn't a sales pitch — it's an application to see if we can actually help you win. Fill out the form, and if we find opportunities in your niche, I'll personally reach out."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <h2>📝 Application Form</h2>
+            <div class="form-container">
+                <form id="applicationForm">
+                    <!-- Basic Info -->
+                    <div class="form-group">
+                        <h3>🔹 Basic Info</h3>
+
+                        <div class="field">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="businessName">Business Name *</label>
+                            <input type="text" id="businessName" name="businessName" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="websiteUrl">Website URL *</label>
+                            <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://example.com" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="locations">Location(s) Served *</label>
+                            <input type="text" id="locations" name="locations" placeholder="e.g., Los Angeles, California, USA" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="role">Your Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="owner">Owner</option>
+                                <option value="marketer">Marketer</option>
+                                <option value="manager">Manager</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Goals -->
+                    <div class="form-group">
+                        <h3>🔹 Goals</h3>
+
+                        <div class="field">
+                            <label for="successOutcome">What would a successful SEO outcome look like for you in the next 6 months? *</label>
+                            <textarea id="successOutcome" name="successOutcome" required></textarea>
+                            <div class="field-help">E.g., more leads, better local rankings, ranking nationally for a service keyword, etc.</div>
+                        </div>
+
+                        <div class="field">
+                            <label for="competitiveEdge">What makes your product/service better than competitors? *</label>
+                            <textarea id="competitiveEdge" name="competitiveEdge" required></textarea>
+                            <div class="field-help">Give us your edge.</div>
+                        </div>
+                    </div>
+
+                    <!-- Current SEO Status -->
+                    <div class="form-group">
+                        <h3>🔹 Current SEO Status</h3>
+
+                        <div class="field">
+                            <label for="currentSEO">What are you doing for SEO right now? *</label>
+                            <select id="currentSEO" name="currentSEO" required>
+                                <option value="">Select current status</option>
+                                <option value="nothing">Nothing yet</option>
+                                <option value="inhouse">In-house team</option>
+                                <option value="freelancer">Freelancer</option>
+                                <option value="agency">Agency</option>
+                                <option value="diy">DIY/Self-managed</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="monthlyTraffic">What's your current monthly organic traffic (rough estimate)? *</label>
+                            <select id="monthlyTraffic" name="monthlyTraffic" required>
+                                <option value="">Select traffic range</option>
+                                <option value="<500">&lt;500 visitors</option>
+                                <option value="500-2000">500-2,000 visitors</option>
+                                <option value="2000-10000">2,000-10,000 visitors</option>
+                                <option value="10000+">10,000+ visitors</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="customerValue">What's your average customer value? *</label>
+                            <input type="text" id="customerValue" name="customerValue" placeholder="e.g., $500, $5,000, $50,000" required>
+                            <div class="field-help">This helps us calculate ROI potential.</div>
+                        </div>
+                    </div>
+
+                    <!-- Fit & Budget -->
+                    <div class="form-group">
+                        <h3>🔹 Fit & Budget</h3>
+
+                        <div class="field">
+                            <label>Are you ready to invest $1,800/mo for expert SEO execution? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="budgetYes" name="budget" value="yes" required>
+                                    <label for="budgetYes">Yes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="budgetInfo" name="budget" value="need-info" required>
+                                    <label for="budgetInfo">I need more info</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="budgetNo" name="budget" value="no" required>
+                                    <label for="budgetNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Are you open to creating content if we identify critical knowledge gaps in your niche? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="contentYes" name="content" value="yes-resources" required>
+                                    <label for="contentYes">Yes — we have the resources</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="contentMaybe" name="content" value="possibly-help" required>
+                                    <label for="contentMaybe">Possibly — need help</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="contentNo" name="content" value="no-handsoff" required>
+                                    <label for="contentNo">No — prefer hands-off</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Question -->
+                    <div class="form-group">
+                        <h3>🔹 Final Question</h3>
+
+                        <div class="field">
+                            <label for="whyNow">Why now? *</label>
+                            <textarea id="whyNow" name="whyNow" required></textarea>
+                            <div class="field-help">Why is fixing your SEO important at this moment?</div>
+                        </div>
+                    </div>
+
+                    <div class="submit-container">
+                        <button type="submit" class="btn-submit">Submit Application</button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">
+                    <h2>🔍 Thanks — we've got your info.</h2>
+                    <p>We'll run a deep-dive analysis of your niche, competition, and any hidden Awaken Keyword™ opportunities.</p>
+                    <p>If we're confident we can get you results, you'll hear directly from Jon Ray within 2-3 business days.</p>
+
+                    <div class="warning-box">
+                        <p>⚠️ <strong>We only take on a small number of businesses at a time to protect performance for current clients.</strong></p>
+                    </div>
+
+                    <div class="next-steps">
+                        <h3>In the meantime:</h3>
+                        <p>👉 <a href="/strategies">Browse Our SEO Strategy Directory</a></p>
+                        <p>👉 <a href="/">Learn About Awaken Keywords™</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jon Ray, <a href="/">Awaken Local</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Here you would normally send the data to your server
+            console.log('Form submission:', data);
+
+            // For now, just show success message
+            this.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Scroll to top of success message
+            window.scrollTo({
+                top: document.querySelector('.form-section').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

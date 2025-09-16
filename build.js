@@ -15,8 +15,8 @@ const strategiesDir = path.join(sourceDir, 'strategies');
 const outputDir = path.join(__dirname, 'public');
 const strategiesOutputDir = path.join(outputDir, 'strategies');
 
-// Base path for subdirectory deployment
-const BASE_PATH = '/strategies';
+// Base path - no longer using subdirectory
+const BASE_PATH = '';
 
 // Categories for organization
 const categories = {
@@ -1246,8 +1246,8 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Base path for subdirectory deployment
-const BASE_PATH = '/strategies';
+// Base path - no longer using subdirectory
+const BASE_PATH = '';
 
 // Serve static files from public directory
 app.use(BASE_PATH, express.static(path.join(__dirname, 'public')));
