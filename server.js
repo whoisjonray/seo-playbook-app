@@ -5,28 +5,26 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Base path - no longer using subdirectory
+const BASE_PATH = '';
 
-// Main routes
-app.get('/', (req, res) => {
+// Serve static files from public directory
+app.use(BASE_PATH, express.static(path.join(__dirname, 'public')));
+
+// Routes with subdirectory support
+app.get(BASE_PATH, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/application', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'application.html'));
-});
-
-app.get('/strategies', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'strategies.html'));
-});
-
-app.get('/search', (req, res) => {
+app.get(`${BASE_PATH}/search`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'search.html'));
 });
 
-// Strategy files
-app.get('/strategies/:file', (req, res) => {
+app.get(`${BASE_PATH}/search.html`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'search.html'));
+});
+
+app.get(`${BASE_PATH}/strategies/:file`, (req, res) => {
     const filePath = path.join(__dirname, 'public', 'strategies', req.params.file);
     if (fs.existsSync(filePath)) {
         res.sendFile(filePath);
@@ -35,17 +33,13 @@ app.get('/strategies/:file', (req, res) => {
     }
 });
 
-// Redirects for old routes
-app.get('/categories', (req, res) => {
-    res.redirect('/strategies#strategies');
-});
-
-app.get('/category/:category', (req, res) => {
-    res.redirect('/strategies#strategies');
+// Redirect root to strategies subdirectory
+app.get('/', (req, res) => {
+    res.redirect(BASE_PATH);
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Awaken Local SEO Platform running at http://localhost:${PORT}`);
-    console.log(`   Ready for deployment at seo.awakenlocal.com`);
+    console.log(`🚀 Awaken Local SEO Strategy Director running at http://localhost:${PORT}${BASE_PATH}`);
+    console.log(`   Ready for deployment at awakenlocal.com${BASE_PATH}`);
 });

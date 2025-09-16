@@ -77,7 +77,21 @@ function extractTitleFromMarkdown(content) {
 }
 
 async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName = '') {
-    const htmlContent = marked(mdContent);
+    // Clean up the markdown content to remove keyword lists at the beginning
+    let cleanedContent = mdContent;
+
+    // Remove keyword lists that appear at the beginning
+    cleanedContent = cleanedContent.replace(/^###?\s*Keywords[\s\S]*?^---$/gm, '');
+    cleanedContent = cleanedContent.replace(/^###?\s*Keywords[\s\S]*?(?=^#|^\*\*|^\d+\.)/gm, '');
+
+    // Remove standalone keyword lists
+    cleanedContent = cleanedContent.replace(/^\s*[-•]\s*(seo|ranking|google|keyword|link|content|local|review|youtube|ai|domain|backlink|optimization|serp)\s*$/gmi, '');
+
+    // Clean up excessive line breaks
+    cleanedContent = cleanedContent.replace(/\n{3,}/g, '\n\n');
+
+    // Convert to HTML
+    const htmlContent = marked(cleanedContent);
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -95,7 +109,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
         <div class="nav-container">
             <a href="${BASE_PATH}/" class="nav-brand">
                 <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
-                <span class="nav-text">SEO Strategy Director</span>
+                <span class="nav-text">SEO Strategy Directory</span>
             </a>
             <div class="nav-links">
                 <a href="${BASE_PATH}/">Home</a>
@@ -117,7 +131,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                 <div class="sidebar-cta">
                     <h4>Need Help?</h4>
                     <p>Get professional SEO services from Awaken Local</p>
-                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary btn-small">Get Started</a>
+                    <a href="/application" class="btn btn-primary btn-small">Get Started</a>
                 </div>
             </aside>
             <main class="main-content">
@@ -209,7 +223,7 @@ async function buildSite() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Strategy Director - 234 Proven Strategies | Awaken Local</title>
+    <title>SEO Strategy Directory - 234 Proven Strategies | Awaken Local</title>
     <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Professional SEO strategy directory from Awaken Local. 234 proven strategies for dominating search rankings in 2025.">
@@ -220,7 +234,7 @@ async function buildSite() {
         <div class="nav-container">
             <a href="${BASE_PATH}/" class="nav-brand">
                 <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
-                <span class="nav-text">SEO Strategy Director</span>
+                <span class="nav-text">SEO Strategy Directory</span>
             </a>
             <div class="nav-links">
                 <a href="${BASE_PATH}/" class="active">Home</a>
@@ -236,7 +250,7 @@ async function buildSite() {
             <div class="hero-logo">
                 <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="hero-logo-img">
             </div>
-            <h1>SEO Strategy Director</h1>
+            <h1>SEO Strategy Directory</h1>
             <p class="hero-subtitle">234 Proven Strategies for Dominating Search Rankings in 2025</p>
             <p class="hero-credit">Curated by <strong>Awaken Local</strong> - Your Digital Marketing Partner</p>
             <div class="hero-stats">
@@ -305,7 +319,6 @@ async function buildSite() {
                     <div class="strategy-grid">
                         ${catStrategies.map(strategy => `
                             <a href="${BASE_PATH}/strategies/${strategy.file}" class="strategy-card">
-                                <div class="strategy-number">#${strategy.number}</div>
                                 <h4>${strategy.title}</h4>
                                 <div class="strategy-meta">
                                     <span class="tag tag-${catKey}">${catName}</span>
@@ -323,14 +336,14 @@ async function buildSite() {
                 <h2>Ready to Dominate Search Rankings?</h2>
                 <p>Let Awaken Local implement these strategies for your business</p>
                 <div class="cta-actions">
-                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary btn-large">Get Professional SEO Help</a>
+                    <a href="/application" class="btn btn-primary btn-large">Get Professional SEO Help</a>
                     <a href="https://awakenlocal.com" target="_blank" class="btn btn-secondary btn-large">Learn About Awaken Local</a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="about-section">
-            <h2>About This SEO Strategy Director</h2>
+            <h2>About This SEO Strategy Directory</h2>
             <p>This comprehensive SEO strategy directory contains ${strategies.length} proven strategies collected and curated by <strong>Awaken Local</strong>. Each strategy has been carefully documented with implementation steps, difficulty ratings, and expected outcomes to help businesses improve their search rankings.</p>
 
             <h3>How to Use This Directory</h3>
@@ -360,13 +373,13 @@ async function buildSite() {
                         <li><a href="${BASE_PATH}/">Strategy Directory</a></li>
                         <li><a href="${BASE_PATH}/search.html">Search Strategies</a></li>
                         <li><a href="https://awakenlocal.com" target="_blank">Awaken Local Website</a></li>
-                        <li><a href="https://awakenlocal.com/contact" target="_blank">Get SEO Help</a></li>
+                        <li><a href="/application">Get SEO Help</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Connect</h4>
                     <p>Ready to improve your search rankings?</p>
-                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary">Contact Us</a>
+                    <a href="/application" class="btn btn-primary">Apply Now</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -397,7 +410,7 @@ async function buildSite() {
         <div class="nav-container">
             <a href="${BASE_PATH}/" class="nav-brand">
                 <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
-                <span class="nav-text">SEO Strategy Director</span>
+                <span class="nav-text">SEO Strategy Directory</span>
             </a>
             <div class="nav-links">
                 <a href="${BASE_PATH}/">Home</a>
@@ -441,7 +454,7 @@ async function buildSite() {
         <div class="search-cta">
             <h3>Need Professional Implementation?</h3>
             <p>Awaken Local can help you implement these strategies effectively</p>
-            <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary">Get Expert Help</a>
+            <a href="/application" class="btn btn-primary">Get Expert Help</a>
         </div>
     </div>
 
