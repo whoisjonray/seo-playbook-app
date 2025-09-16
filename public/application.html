@@ -441,7 +441,10 @@
         <div class="container">
             <h2>📝 Application Form</h2>
             <div class="form-container">
-                <form id="applicationForm" action="https://formspree.io/f/mwpkgnkr" method="POST">
+                <form id="applicationForm" action="https://formspree.io/f/mwpkgnkr" method="POST" accept-charset="UTF-8">
+                    <!-- Hidden field for Formspree -->
+                    <input type="hidden" name="_subject" value="New SEO Application from Awaken Local">
+
                     <!-- Basic Info -->
                     <div class="form-group">
                         <h3>🔹 Basic Info</h3>
@@ -657,8 +660,12 @@
                         behavior: 'smooth'
                     });
                 } else {
-                    // Error
-                    alert('There was an error submitting your application. Please try again or email us directly at whoisjonray@gmail.com');
+                    // Error - try to get more details
+                    const errorData = await response.json().catch(() => null);
+                    const errorMessage = errorData?.error || 'There was an error submitting your application.';
+                    console.error('Form submission error:', errorMessage);
+
+                    alert(`${errorMessage}\n\nPlease try again or email us directly at whoisjonray@gmail.com`);
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
                 }
