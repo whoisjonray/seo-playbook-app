@@ -15,6 +15,9 @@ const strategiesDir = path.join(sourceDir, 'strategies');
 const outputDir = path.join(__dirname, 'public');
 const strategiesOutputDir = path.join(outputDir, 'strategies');
 
+// Base path for subdirectory deployment
+const BASE_PATH = '/strategies';
+
 // Categories for organization
 const categories = {
     'ai-search': 'AI & Search Features',
@@ -50,25 +53,21 @@ function getCategoryForStrategy(title, content) {
         lowerTitle.includes('landing page')) return 'conversion';
     if (lowerTitle.includes('enterprise') || lowerTitle.includes('scale')) return 'enterprise';
 
-    // Default to technical for anything else
     return 'technical';
 }
 
 // Extract the actual title from markdown content
 function extractTitleFromMarkdown(content) {
-    // Look for the first H1 heading
     const h1Match = content.match(/^#\s+(.+)$/m);
     if (h1Match) {
         return h1Match[1].trim();
     }
 
-    // Look for bold title pattern
     const boldMatch = content.match(/\*\*Strategy:\*\*\s*(.+)/);
     if (boldMatch) {
         return boldMatch[1].trim();
     }
 
-    // Look for any heading
     const headingMatch = content.match(/^#{1,3}\s+(.+)$/m);
     if (headingMatch) {
         return headingMatch[1].trim();
@@ -85,20 +84,24 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} - SEO Playbook</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>${title} - Awaken Local SEO Strategies</title>
+    <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="${title} - Comprehensive SEO strategy guide with implementation steps and best practices.">
+    <meta name="description" content="${title} - Professional SEO strategy guide from Awaken Local. Proven techniques for improving search rankings.">
+    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-brand">📚 SEO Playbook</a>
+            <a href="${BASE_PATH}/" class="nav-brand">
+                <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
+                <span class="nav-text">SEO Strategy Director</span>
+            </a>
             <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#strategies">Categories</a>
-                <a href="/search.html">Search</a>
-                <a href="/about">About</a>
+                <a href="${BASE_PATH}/">Home</a>
+                <a href="${BASE_PATH}/#strategies">Strategies</a>
+                <a href="${BASE_PATH}/search.html">Search</a>
+                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
@@ -108,38 +111,47 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                 <h3>Quick Links</h3>
                 <ul class="sidebar-links">
                     ${Object.entries(categories).map(([key, name]) =>
-                        `<li><a href="/#strategies">${name}</a></li>`
+                        `<li><a href="${BASE_PATH}/#strategies">${name}</a></li>`
                     ).join('')}
                 </ul>
+                <div class="sidebar-cta">
+                    <h4>Need Help?</h4>
+                    <p>Get professional SEO services from Awaken Local</p>
+                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary btn-small">Get Started</a>
+                </div>
             </aside>
             <main class="main-content">
                 <div class="breadcrumb">
-                    <a href="/">Home</a> / <a href="/#strategies">Strategies</a> / <span>${fileName}</span>
+                    <a href="${BASE_PATH}/">Home</a> / <a href="${BASE_PATH}/#strategies">Strategies</a> / <span>${fileName}</span>
                 </div>
                 <div class="strategy-content">
                     <h1 class="strategy-title">${title}</h1>
                     ${htmlContent}
                 </div>
                 <div class="navigation-buttons">
-                    <a href="/" class="btn btn-secondary">← Back to Index</a>
-                    <a href="/search.html" class="btn btn-primary">Search Strategies</a>
+                    <a href="${BASE_PATH}/" class="btn btn-secondary">← Back to Strategies</a>
+                    <a href="${BASE_PATH}/search.html" class="btn btn-primary">Search All Strategies</a>
                 </div>
             </main>
         </div>
     </div>
     <footer class="footer-simple">
-        <p>© 2025 SEO Strategy Playbook</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Jon Ray, Awaken Local. All rights reserved.</p>
+            <p><a href="https://awakenlocal.com" target="_blank">awakenlocal.com</a> | Professional SEO & Digital Marketing</p>
+        </div>
     </footer>
 </body>
 </html>`;
 }
 
 async function buildSite() {
-    console.log('🚀 Building SEO Playbook site with full titles...');
+    console.log('🚀 Building Awaken Local SEO Strategy Director...');
 
     // Create output directories
     await fs.ensureDir(outputDir);
     await fs.ensureDir(strategiesOutputDir);
+    await fs.ensureDir(path.join(outputDir, 'images'));
 
     // Read all strategy files
     const strategyFiles = await fs.readdir(strategiesDir);
@@ -151,24 +163,21 @@ async function buildSite() {
             const mdContent = await fs.readFile(path.join(strategiesDir, file), 'utf-8');
             const strategyName = file.replace('.md', '');
 
-            // Extract the real title from the markdown content
             let fullTitle = extractTitleFromMarkdown(mdContent);
 
-            // If we can't extract a title, create one from the filename
             if (!fullTitle) {
                 fullTitle = strategyName
-                    .replace(/^\d+-/, '') // Remove leading numbers
-                    .replace(/-/g, ' ') // Replace hyphens with spaces
+                    .replace(/^\d+-/, '')
+                    .replace(/-/g, ' ')
                     .split(' ')
                     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(' ');
             }
 
-            // Clean up the title
             fullTitle = fullTitle
-                .replace(/\*\*/g, '') // Remove markdown bold
-                .replace(/^Strategy:\s*/i, '') // Remove "Strategy:" prefix
-                .replace(/^\d+\.\s*/, '') // Remove numbering
+                .replace(/\*\*/g, '')
+                .replace(/^Strategy:\s*/i, '')
+                .replace(/^\d+\.\s*/, '')
                 .trim();
 
             const html = await convertMarkdownToHTML(mdContent, fullTitle, strategyName);
@@ -176,7 +185,6 @@ async function buildSite() {
 
             await fs.writeFile(path.join(strategiesOutputDir, htmlFile), html);
 
-            // Extract strategy number for categorization
             const strategyNum = file.match(/^(\d+)/)?.[1] || '000';
             const category = getCategoryForStrategy(fullTitle, mdContent);
 
@@ -201,28 +209,36 @@ async function buildSite() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Strategy Playbook - 234 Proven Strategies for 2025</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>SEO Strategy Director - 234 Proven Strategies | Awaken Local</title>
+    <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Comprehensive collection of 234 proven SEO strategies organized by category. Actionable guides for improving search rankings in 2025.">
+    <meta name="description" content="Professional SEO strategy directory from Awaken Local. 234 proven strategies for dominating search rankings in 2025.">
+    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-brand">📚 SEO Playbook</a>
+            <a href="${BASE_PATH}/" class="nav-brand">
+                <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
+                <span class="nav-text">SEO Strategy Director</span>
+            </a>
             <div class="nav-links">
-                <a href="/" class="active">Home</a>
-                <a href="#strategies">Categories</a>
-                <a href="/search.html">Search</a>
-                <a href="#about">About</a>
+                <a href="${BASE_PATH}/" class="active">Home</a>
+                <a href="#strategies">Strategies</a>
+                <a href="${BASE_PATH}/search.html">Search</a>
+                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>🚀 SEO Strategy Playbook</h1>
+            <div class="hero-logo">
+                <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="hero-logo-img">
+            </div>
+            <h1>SEO Strategy Director</h1>
             <p class="hero-subtitle">234 Proven Strategies for Dominating Search Rankings in 2025</p>
+            <p class="hero-credit">Curated by <strong>Awaken Local</strong> - Your Digital Marketing Partner</p>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number">${strategies.length}</span>
@@ -239,14 +255,14 @@ async function buildSite() {
             </div>
             <div class="hero-actions">
                 <a href="#strategies" class="btn btn-primary">Browse Strategies</a>
-                <a href="/search.html" class="btn btn-secondary">Search Playbook</a>
+                <a href="${BASE_PATH}/search.html" class="btn btn-secondary">Search Directory</a>
             </div>
         </div>
     </header>
 
     <div class="container">
         <section class="features">
-            <h2>What's Inside</h2>
+            <h2>Professional SEO Strategies from Awaken Local</h2>
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
@@ -265,14 +281,15 @@ async function buildSite() {
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
-                    <h3>Best Practices</h3>
-                    <p>Learn from proven techniques that actually work</p>
+                    <h3>Expert Insights</h3>
+                    <p>Proven techniques from Awaken Local's experience</p>
                 </div>
             </div>
         </section>
 
         <section id="strategies" class="strategies-section">
-            <h2>All ${strategies.length} Strategies by Category</h2>
+            <h2>All ${strategies.length} SEO Strategies</h2>
+            <p class="section-subtitle">Organized by category for easy navigation</p>
 
             ${Object.entries(categories).map(([catKey, catName]) => {
                 const catStrategies = strategies.filter(s => s.category === catKey);
@@ -287,7 +304,7 @@ async function buildSite() {
                     </h3>
                     <div class="strategy-grid">
                         ${catStrategies.map(strategy => `
-                            <a href="/strategies/${strategy.file}" class="strategy-card">
+                            <a href="${BASE_PATH}/strategies/${strategy.file}" class="strategy-card">
                                 <div class="strategy-number">#${strategy.number}</div>
                                 <h4>${strategy.title}</h4>
                                 <div class="strategy-meta">
@@ -301,51 +318,92 @@ async function buildSite() {
             }).join('')}
         </section>
 
-        <section id="about" class="about-section">
-            <h2>About This Playbook</h2>
-            <p>This comprehensive SEO strategy playbook contains ${strategies.length} proven strategies collected from industry experts, case studies, and real-world implementations. Each strategy has been carefully documented with implementation steps, difficulty ratings, and expected outcomes to help you improve your search rankings.</p>
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Dominate Search Rankings?</h2>
+                <p>Let Awaken Local implement these strategies for your business</p>
+                <div class="cta-actions">
+                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary btn-large">Get Professional SEO Help</a>
+                    <a href="https://awakenlocal.com" target="_blank" class="btn btn-secondary btn-large">Learn About Awaken Local</a>
+                </div>
+            </div>
+        </section>
 
-            <h3>How to Use This Playbook</h3>
+        <section id="about" class="about-section">
+            <h2>About This SEO Strategy Director</h2>
+            <p>This comprehensive SEO strategy directory contains ${strategies.length} proven strategies collected and curated by <strong>Awaken Local</strong>. Each strategy has been carefully documented with implementation steps, difficulty ratings, and expected outcomes to help businesses improve their search rankings.</p>
+
+            <h3>How to Use This Directory</h3>
             <ol>
                 <li>Browse strategies by category or use search to find specific techniques</li>
                 <li>Review the difficulty and time requirements for each strategy</li>
                 <li>Follow the step-by-step implementation guides</li>
                 <li>Track your results and iterate on what works</li>
             </ol>
+
+            <h3>About Awaken Local</h3>
+            <p>Awaken Local is a full-service digital marketing agency specializing in SEO, local search optimization, and digital growth strategies. We help businesses increase their online visibility and drive more qualified traffic to their websites.</p>
+            <p>Visit <a href="https://awakenlocal.com" target="_blank">awakenlocal.com</a> to learn more about our services.</p>
         </section>
     </div>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 SEO Strategy Playbook. Built with data-driven insights.</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="footer-logo">
+                    <p>Professional SEO & Digital Marketing</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="${BASE_PATH}/">Strategy Directory</a></li>
+                        <li><a href="${BASE_PATH}/search.html">Search Strategies</a></li>
+                        <li><a href="https://awakenlocal.com" target="_blank">Awaken Local Website</a></li>
+                        <li><a href="https://awakenlocal.com/contact" target="_blank">Get SEO Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <p>Ready to improve your search rankings?</p>
+                    <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jon Ray, Awaken Local. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="/app.js"></script>
+    <script src="${BASE_PATH}/app.js"></script>
 </body>
 </html>`;
 
     await fs.writeFile(path.join(outputDir, 'index.html'), indexHTML);
 
-    // Create search page with full titles
+    // Create search page with Awaken Local branding
     const searchHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search SEO Strategies - SEO Playbook</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Search SEO Strategies - Awaken Local</title>
+    <link rel="stylesheet" href="${BASE_PATH}/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="${BASE_PATH}/images/awaken-local-logo.png">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-brand">📚 SEO Playbook</a>
+            <a href="${BASE_PATH}/" class="nav-brand">
+                <img src="${BASE_PATH}/images/awaken-local-logo.png" alt="Awaken Local" class="nav-logo">
+                <span class="nav-text">SEO Strategy Director</span>
+            </a>
             <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#strategies">Categories</a>
-                <a href="/search.html" class="active">Search</a>
-                <a href="/#about">About</a>
+                <a href="${BASE_PATH}/">Home</a>
+                <a href="${BASE_PATH}/#strategies">Strategies</a>
+                <a href="${BASE_PATH}/search.html" class="active">Search</a>
+                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
@@ -353,6 +411,7 @@ async function buildSite() {
     <div class="container">
         <div class="search-container">
             <h1>Search ${strategies.length} SEO Strategies</h1>
+            <p class="search-subtitle">Find the perfect strategy for your SEO needs</p>
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search for strategies, keywords, or techniques..." class="search-input" autofocus>
                 <button onclick="searchStrategies()" class="btn btn-primary">Search</button>
@@ -378,7 +437,20 @@ async function buildSite() {
                 <p class="search-hint">Start typing to search through all ${strategies.length} strategies...</p>
             </div>
         </div>
+
+        <div class="search-cta">
+            <h3>Need Professional Implementation?</h3>
+            <p>Awaken Local can help you implement these strategies effectively</p>
+            <a href="https://awakenlocal.com/contact" target="_blank" class="btn btn-primary">Get Expert Help</a>
+        </div>
     </div>
+
+    <footer class="footer-simple">
+        <div class="footer-content">
+            <p>&copy; 2025 Jon Ray, Awaken Local. All rights reserved.</p>
+            <p><a href="https://awakenlocal.com" target="_blank">awakenlocal.com</a> | Professional SEO & Digital Marketing</p>
+        </div>
+    </footer>
 
     <script>
         const strategies = ${JSON.stringify(strategies.map(s => ({
@@ -429,7 +501,7 @@ async function buildSite() {
                     <h3>Found \${results.length} strategies</h3>
                     <div class="strategy-grid">
                         \${results.map(s => \`
-                            <a href="/strategies/\${s.file}" class="strategy-card">
+                            <a href="${BASE_PATH}/strategies/\${s.file}" class="strategy-card">
                                 <div class="strategy-number">#\${s.number}</div>
                                 <h4>\${s.title}</h4>
                                 <div class="strategy-meta">
@@ -442,12 +514,10 @@ async function buildSite() {
             }
         }
 
-        // Search on Enter key or as user types
         document.getElementById('searchInput').addEventListener('keyup', function(event) {
             searchStrategies();
         });
 
-        // Search when filters change
         document.querySelectorAll('.search-filters input').forEach(input => {
             input.addEventListener('change', searchStrategies);
         });
@@ -457,55 +527,622 @@ async function buildSite() {
 
     await fs.writeFile(path.join(outputDir, 'search.html'), searchHTML);
 
-    // Enhanced CSS with better styling
-    const css = await fs.readFile(path.join(outputDir, 'styles.css'), 'utf-8');
-    const enhancedCSS = css + `
-/* Enhanced styles for better readability */
-.breadcrumb {
-    padding: 0.5rem 0;
+    // Enhanced CSS with Awaken Local branding
+    const css = `/* Awaken Local SEO Strategy Director Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #FF6B35;
+    --primary-dark: #E55A2B;
+    --secondary: #10b981;
+    --dark: #1f2937;
+    --light: #f9fafb;
+    --border: #e5e7eb;
+    --text: #374151;
+    --text-light: #6b7280;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation with Logo */
+.navbar {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+/* Hero Section with Awaken Local Branding */
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-logo {
+    margin-bottom: 2rem;
+}
+
+.hero-logo-img {
+    height: 80px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 1rem;
+}
+
+.hero-credit {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
     font-size: 0.875rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+/* Features */
+.features {
+    padding: 4rem 0;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+}
+
+/* Strategies Section */
+.strategies-section {
+    padding: 4rem 0;
+}
+
+.strategies-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.category-section {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--dark);
+}
+
+.category-icon {
+    font-size: 1.5rem;
+}
+
+.category-count {
+    margin-left: auto;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.strategy-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.strategy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid var(--primary);
+}
+
+.strategy-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--light);
+    color: var(--text-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.strategy-card h4 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.3;
+}
+
+.strategy-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--light);
+    color: var(--text);
+}
+
+.tag-ai-search { background: #dbeafe; color: #1e40af; }
+.tag-link-building { background: #fef3c7; color: #92400e; }
+.tag-local-seo { background: #d1fae5; color: #065f46; }
+.tag-content { background: #ede9fe; color: #5b21b6; }
+.tag-technical { background: #fee2e2; color: #991b1b; }
+.tag-youtube { background: #ffe4e6; color: #be123c; }
+.tag-authority { background: #fff7ed; color: #9a3412; }
+.tag-conversion { background: #ecfdf5; color: #047857; }
+
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-radius: 1rem;
+    margin: 4rem 0;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Sidebar */
+.sidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.sidebar-links {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.sidebar-links li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+}
+
+.sidebar-links a:hover {
+    color: var(--primary);
+}
+
+.sidebar-cta {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.sidebar-cta h4 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-cta p {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Content Layout */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.main-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    min-height: 600px;
+}
+
+.strategy-content {
+    prose: true;
+    max-width: none;
+}
+
+.strategy-content h1 {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.strategy-content h2 {
+    color: var(--dark);
+    margin: 2rem 0 1rem;
+}
+
+.strategy-content h3 {
+    color: var(--dark);
+    margin: 1.5rem 0 0.75rem;
+}
+
+.strategy-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.strategy-content ul,
+.strategy-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.strategy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.navigation-buttons {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+}
+
+/* Search Page */
+.search-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.search-container h1 {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.search-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+
+.search-cta {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+
+.search-cta h3 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.search-cta p {
     color: var(--text-light);
     margin-bottom: 1rem;
 }
 
-.breadcrumb a {
+/* Footer */
+.footer {
+    background: var(--dark);
+    color: white;
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    margin-bottom: 1rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-simple {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-content a {
     color: var(--primary);
     text-decoration: none;
 }
 
-.breadcrumb a:hover {
+.footer-content a:hover {
     text-decoration: underline;
 }
 
-.strategy-title {
-    font-size: 2.5rem;
-    color: var(--dark);
-    margin-bottom: 2rem;
-    line-height: 1.2;
-}
-
-.search-filters {
-    display: flex;
-    gap: 1.5rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
-}
-
-.search-filters label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text);
-}
-
-.search-hint {
-    text-align: center;
-    color: var(--text-light);
-    padding: 2rem;
-    font-style: italic;
-}
-
+/* About Section */
 .about-section {
     padding: 4rem 0;
     background: white;
@@ -528,54 +1165,133 @@ async function buildSite() {
     line-height: 1.8;
 }
 
-.footer-simple {
-    background: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 4rem;
+.about-section a {
+    color: var(--primary);
+    text-decoration: none;
 }
 
-/* Improve strategy card hover effect */
-.strategy-card h4 {
-    line-height: 1.3;
+.about-section a:hover {
+    text-decoration: underline;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
-/* Make mobile responsive */
-@media (max-width: 640px) {
-    .strategy-title {
-        font-size: 1.75rem;
+.breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
     }
 
-    .search-filters {
+    .hero-stats {
+        gap: 2rem;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .strategy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cta-actions {
         flex-direction: column;
-        gap: 0.75rem;
+    }
+
+    .nav-logo {
+        height: 30px;
+    }
+
+    .hero-logo-img {
+        height: 60px;
     }
 }`;
 
-    await fs.writeFile(path.join(outputDir, 'styles.css'), enhancedCSS);
+    await fs.writeFile(path.join(outputDir, 'styles.css'), css);
 
-    // Create strategies data JSON for easier access
-    const strategiesData = {
-        strategies: strategies,
-        categories: categories,
-        total: strategies.length,
-        generated: new Date().toISOString()
-    };
+    // Update server.js for subdirectory routing
+    const serverJS = `const express = require('express');
+const path = require('path');
+const fs = require('fs');
 
-    await fs.writeFile(
-        path.join(outputDir, 'strategies-data.json'),
-        JSON.stringify(strategiesData, null, 2)
-    );
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-    console.log('\n✅ Build complete with full titles!');
+// Base path for subdirectory deployment
+const BASE_PATH = '/strategies';
+
+// Serve static files from public directory
+app.use(BASE_PATH, express.static(path.join(__dirname, 'public')));
+
+// Routes with subdirectory support
+app.get(BASE_PATH, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get(\`\${BASE_PATH}/search\`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'search.html'));
+});
+
+app.get(\`\${BASE_PATH}/search.html\`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'search.html'));
+});
+
+app.get(\`\${BASE_PATH}/strategies/:file\`, (req, res) => {
+    const filePath = path.join(__dirname, 'public', 'strategies', req.params.file);
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.status(404).send('Strategy not found');
+    }
+});
+
+// Redirect root to strategies subdirectory
+app.get('/', (req, res) => {
+    res.redirect(BASE_PATH);
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(\`🚀 Awaken Local SEO Strategy Director running at http://localhost:\${PORT}\${BASE_PATH}\`);
+    console.log(\`   Ready for deployment at awakenlocal.com\${BASE_PATH}\`);
+});`;
+
+    await fs.writeFile(path.join(__dirname, 'server.js'), serverJS);
+
+    console.log('\n✅ Build complete with Awaken Local branding!');
     console.log(`  - ${strategies.length} strategies converted`);
-    console.log('  - Full titles extracted from markdown content');
-    console.log('  - Index page created');
-    console.log('  - Search page created with filters');
-    console.log('  - Enhanced styles applied');
-    console.log('  - Server configured');
+    console.log('  - Awaken Local branding applied');
+    console.log('  - Configured for /strategies subdirectory');
+    console.log('  - Ready for deployment at awakenlocal.com/strategies');
 
     // Helper function for category icons
     function getCategoryIcon(category) {
