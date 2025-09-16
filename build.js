@@ -77,18 +77,36 @@ function extractTitleFromMarkdown(content) {
 }
 
 async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName = '') {
-    // Clean up the markdown content to remove keyword lists at the beginning
+    // Clean up the markdown content
     let cleanedContent = mdContent;
+
+    // Remove the title if it appears as the first H1 (to avoid duplication)
+    const titleRegex = new RegExp(`^#\\s*${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'mi');
+    cleanedContent = cleanedContent.replace(titleRegex, '');
+
+    // Also remove if it appears without the # markdown
+    const plainTitleRegex = new RegExp(`^${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'mi');
+    cleanedContent = cleanedContent.replace(plainTitleRegex, '');
 
     // Remove keyword lists that appear at the beginning
     cleanedContent = cleanedContent.replace(/^###?\s*Keywords[\s\S]*?^---$/gm, '');
-    cleanedContent = cleanedContent.replace(/^###?\s*Keywords[\s\S]*?(?=^#|^\*\*|^\d+\.)/gm, '');
+    cleanedContent = cleanedContent.replace(/^###?\s*Keywords[\s\S]*?(?=^##|^\*\*|^\d+\.)/gm, '');
 
-    // Remove standalone keyword lists
+    // Remove standalone keyword bullet points
     cleanedContent = cleanedContent.replace(/^\s*[-•]\s*(seo|ranking|google|keyword|link|content|local|review|youtube|ai|domain|backlink|optimization|serp)\s*$/gmi, '');
 
     // Clean up excessive line breaks
-    cleanedContent = cleanedContent.replace(/\n{3,}/g, '\n\n');
+    cleanedContent = cleanedContent.replace(/\n{4,}/g, '\n\n\n');
+    cleanedContent = cleanedContent.replace(/^\n+/, ''); // Remove leading newlines
+    cleanedContent = cleanedContent.replace(/\n+$/, ''); // Remove trailing newlines
+
+    // Configure marked for better list handling
+    marked.setOptions({
+        breaks: true,
+        gfm: true,
+        headerIds: false,
+        mangle: false
+    });
 
     // Convert to HTML
     const htmlContent = marked(cleanedContent);
@@ -115,7 +133,6 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                 <a href="${BASE_PATH}/">Home</a>
                 <a href="${BASE_PATH}/#strategies">Strategies</a>
                 <a href="${BASE_PATH}/search.html">Search</a>
-                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
@@ -140,7 +157,9 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                 </div>
                 <div class="strategy-content">
                     <h1 class="strategy-title">${title}</h1>
-                    ${htmlContent}
+                    <div class="strategy-body">
+                        ${htmlContent}
+                    </div>
                 </div>
                 <div class="navigation-buttons">
                     <a href="${BASE_PATH}/" class="btn btn-secondary">← Back to Strategies</a>
@@ -152,7 +171,7 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
     <footer class="footer-simple">
         <div class="footer-content">
             <p>&copy; 2025 Jon Ray, Awaken Local. All rights reserved.</p>
-            <p><a href="https://awakenlocal.com" target="_blank">awakenlocal.com</a> | Professional SEO & Digital Marketing</p>
+            <p>Professional SEO & Digital Marketing</p>
         </div>
     </footer>
 </body>
@@ -240,7 +259,6 @@ async function buildSite() {
                 <a href="${BASE_PATH}/" class="active">Home</a>
                 <a href="#strategies">Strategies</a>
                 <a href="${BASE_PATH}/search.html">Search</a>
-                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
@@ -370,10 +388,10 @@ async function buildSite() {
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="${BASE_PATH}/">Strategy Directory</a></li>
-                        <li><a href="${BASE_PATH}/search.html">Search Strategies</a></li>
-                        <li><a href="https://awakenlocal.com" target="_blank">Awaken Local Website</a></li>
-                        <li><a href="/application">Get SEO Help</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/strategies">Strategy Directory</a></li>
+                        <li><a href="/search">Search Strategies</a></li>
+                        <li><a href="/application">Get Started</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -392,7 +410,7 @@ async function buildSite() {
 </body>
 </html>`;
 
-    await fs.writeFile(path.join(outputDir, 'index.html'), indexHTML);
+    await fs.writeFile(path.join(outputDir, 'strategies.html'), indexHTML);
 
     // Create search page with Awaken Local branding
     const searchHTML = `<!DOCTYPE html>
@@ -416,7 +434,6 @@ async function buildSite() {
                 <a href="${BASE_PATH}/">Home</a>
                 <a href="${BASE_PATH}/#strategies">Strategies</a>
                 <a href="${BASE_PATH}/search.html" class="active">Search</a>
-                <a href="https://awakenlocal.com" target="_blank">Awaken Local</a>
             </div>
         </div>
     </nav>
@@ -461,7 +478,7 @@ async function buildSite() {
     <footer class="footer-simple">
         <div class="footer-content">
             <p>&copy; 2025 Jon Ray, Awaken Local. All rights reserved.</p>
-            <p><a href="https://awakenlocal.com" target="_blank">awakenlocal.com</a> | Professional SEO & Digital Marketing</p>
+            <p>Professional SEO & Digital Marketing</p>
         </div>
     </footer>
 
