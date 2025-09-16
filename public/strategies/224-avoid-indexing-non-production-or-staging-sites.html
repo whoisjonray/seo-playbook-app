@@ -56,13 +56,23 @@
 <p>Preventing Google from crawling and indexing staging, testing, or development subdomains of your site by using robots.txt, noindex meta tags, or password protection.</p>
 <h2>Full Strategy Details</h2>
 <h3>Avoid Indexing Non-Production or Staging Sites</h3>
-<p><strong>What It Is:</strong> Preventing Google from crawling and indexing staging, testing, or development subdomains of your site by using robots.txt, noindex meta tags, or password protection.<br>   <strong>Why It Works:</strong> Staging sites can create duplicate content, waste crawl budget, confuse Google’s indexing, and artificially inflate traffic or ranking signals in ways that harm your main site.<br>   <strong>When To Use:</strong> Any site with parallel development or testing environments exposed publicly on web.<br>   <strong>Execution Steps:</strong>  </p>
+<h3>What It Is</h3>
+<p> Preventing Google from crawling and indexing staging, testing, or development subdomains of your site by using robots.txt, noindex meta tags, or password protection.  </p>
+<h3>Why It Works</h3>
+<p> Staging sites can create duplicate content, waste crawl budget, confuse Google’s indexing, and artificially inflate traffic or ranking signals in ways that harm your main site.  </p>
+<h3>When To Use</h3>
+<p> Any site with parallel development or testing environments exposed publicly on web.  </p>
+<h3>Execution Steps</h3>
 <ol>
 <li>Confirm URLs of staging and dev environments.  </li>
 <li>Use robots.txt to disallow all user-agents on staging sites.  </li>
 <li>Add noindex meta tags to all staging pages or use HTTP authentication.  </li>
-<li>Regularly check Google Search Console and Search by site: operator to verify staging URLs are not indexed.<br>   <strong>Pitfalls &amp; Limits:</strong> Assuming Google automatically ignores staging subdomains is incorrect; forgetting to block indexing leads to SEO issues.<br>   <strong>Example:</strong> Nick related a case where a staging site was indexed causing sudden spikes and recipe for lost rankings.</li>
+<li>Regularly check Google Search Console and Search by site: operator to verify staging URLs are not indexed.</li>
 </ol>
+<h3>Pitfalls &amp; Limits</h3>
+<p> Assuming Google automatically ignores staging subdomains is incorrect; forgetting to block indexing leads to SEO issues.  </p>
+<h3>Example</h3>
+<p> Nick related a case where a staging site was indexed causing sudden spikes and recipe for lost rankings.</p>
 <h2>Implementation Checklist</h2>
 <ol>
 <li>Confirm URLs of staging and dev environments.</li>

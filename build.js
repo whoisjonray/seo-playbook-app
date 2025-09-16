@@ -105,6 +105,17 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
     // Fix numbered lists that start with wrong numbers
     cleanedContent = cleanedContent.replace(/^\d+\.\s+\*\*(.+?)\*\*/gm, '### $1');
 
+    // Fix inline headers that should be their own sections
+    cleanedContent = cleanedContent.replace(/\*\*Pitfalls & Limits:\*\*/g, '\n\n### Pitfalls & Limits\n');
+    cleanedContent = cleanedContent.replace(/\*\*Example:\*\*/g, '\n\n### Example\n');
+    cleanedContent = cleanedContent.replace(/\*\*Execution Steps:\*\*/g, '\n\n### Execution Steps\n');
+    cleanedContent = cleanedContent.replace(/\*\*Why It Works:\*\*/g, '\n\n### Why It Works\n');
+    cleanedContent = cleanedContent.replace(/\*\*When To Use:\*\*/g, '\n\n### When To Use\n');
+    cleanedContent = cleanedContent.replace(/\*\*What It Is:\*\*/g, '\n\n### What It Is\n');
+
+    // Also handle inline versions without bold
+    cleanedContent = cleanedContent.replace(/\s+Pitfalls & Limits:/g, '\n\n### Pitfalls & Limits\n');
+
     // Process headers for better formatting
     cleanedContent = cleanedContent.replace(/^(Execution Steps:)$/gm, '### $1');
     cleanedContent = cleanedContent.replace(/^(Pitfalls & Limits:)$/gm, '### $1');
@@ -166,6 +177,10 @@ async function convertMarkdownToHTML(mdContent, title = 'SEO Strategy', fileName
                `- [View All ${categoryName} Strategies](/strategies#${category})\n` +
                `- [Back to Strategy Index](/strategies)\n\n`;
     });
+
+    // Clean up any broken list items with inline content that should be separated
+    cleanedContent = cleanedContent.replace(/(\d+\..*?)\s*\*\*(Pitfalls.*?):\*\*/g, '$1\n\n### $2\n');
+    cleanedContent = cleanedContent.replace(/(\d+\..*?)\s*\*\*(Example.*?):\*\*/g, '$1\n\n### $2\n');
 
     // Convert to HTML
     const htmlContent = marked(cleanedContent);
