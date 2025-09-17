@@ -24,6 +24,22 @@ app.get(`${BASE_PATH}/search.html`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'search.html'));
 });
 
+app.get(`${BASE_PATH}/application`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'application.html'));
+});
+
+app.get(`${BASE_PATH}/application.html`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'application.html'));
+});
+
+app.get(`${BASE_PATH}/strategies`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'strategies.html'));
+});
+
+app.get(`${BASE_PATH}/strategies.html`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'strategies.html'));
+});
+
 app.get(`${BASE_PATH}/strategies/:file`, (req, res) => {
     const filePath = path.join(__dirname, 'public', 'strategies', req.params.file);
     if (fs.existsSync(filePath)) {
