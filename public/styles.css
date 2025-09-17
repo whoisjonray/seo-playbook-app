@@ -27,6 +27,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    overflow-x: hidden;
 }
 
 /* Navigation with Logo */
@@ -432,11 +433,15 @@ body {
     padding: 2rem;
     border-radius: 0.75rem;
     min-height: 600px;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 .strategy-content {
     prose: true;
-    max-width: none;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .strategy-content h1 {
@@ -473,20 +478,31 @@ body {
 
 .strategy-content pre {
     overflow-x: auto;
+    overflow-y: hidden;
     max-width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
+    word-break: break-word;
     background: #f5f5f5;
     padding: 1rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .strategy-content code {
     white-space: pre-wrap;
     word-break: break-word;
+    word-wrap: break-word;
     display: block;
     max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.strategy-content pre code {
+    background: transparent;
+    padding: 0;
 }
 
 .navigation-buttons {
