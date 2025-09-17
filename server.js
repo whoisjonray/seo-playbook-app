@@ -5,6 +5,14 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Redirect seo.awakenlocal.com to awakenlocal.com
+app.use((req, res, next) => {
+    if (req.hostname === 'seo.awakenlocal.com') {
+        return res.redirect(301, `https://awakenlocal.com${req.originalUrl}`);
+    }
+    next();
+});
+
 // Serve static files from public directory (CSS, JS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
